@@ -1,0 +1,457 @@
+chunk_id,type,source_file,section_title,created_at,author,preview
+1,note,meeting_notes_collection.md,TYNGO Meeting Notes Collection,,,# TYNGO Meeting Notes Collection
+2,note,meeting_notes_collection.md,"Weekly Development Team Meeting - Jul 15, 2025",2025-07-15,,"## Weekly Development Team Meeting - Jul 15, 2025"
+3,note,meeting_notes_collection.md,meeting_notes_collection.md,,"** Sarah Chen (Tech Lead), Mike Rodriguez (Backend Dev), Lisa Wang (Frontend Dev), James Thompson (QA Lead), David Kim (Product Manager)","**Date:** July 15, 2025   **Time:** 9:00 AM - 10:30 AM PST  "
+4,note,meeting_notes_collection.md,Agenda Items,,,### Agenda Items
+5,note,meeting_notes_collection.md,1. Sprint 23 Progress Review,,,#### 1. Sprint 23 Progress Review - **Table-Side Ordering Fe
+6,note,meeting_notes_collection.md,2. Stripe Integration Status,,,#### 2. Stripe Integration Status - Live pricing table integ
+7,note,meeting_notes_collection.md,3. Blockers & Issues,,,#### 3. Blockers & Issues - Oracle Simphony API rate limitin
+8,note,meeting_notes_collection.md,4. Next Sprint Planning,,,#### 4. Next Sprint Planning - Focus on Oracle integration o
+9,note,meeting_notes_collection.md,meeting_notes_collection.md,,,**Action Items:** - Mike: Optimize Oracle API calls by Jul 1
+10,note,meeting_notes_collection.md,meeting_notes_collection.md,,,---
+11,note,meeting_notes_collection.md,"Refinement Call - Table-Side Ordering Feature - Sprint 23 - Jul 10, 2025",2025-07-10,,## Refinement Call - Table-Side Ordering Feature - Sprint 23
+12,note,meeting_notes_collection.md,meeting_notes_collection.md,,** Product Team + Development Team,"**Date:** July 10, 2025   **Time:** 2:00 PM - 3:30 PM PST   "
+13,note,meeting_notes_collection.md,Feature Overview,,,### Feature Overview **Epic:** Table-Side Ordering System   
+14,note,meeting_notes_collection.md,Acceptance Criteria Refinement,,,### Acceptance Criteria Refinement
+15,note,meeting_notes_collection.md,"User Story: ""As a restaurant customer, I want to place orders directly from my table using a mobile device""",,,"#### User Story: ""As a restaurant customer, I want to place "
+16,note,meeting_notes_collection.md,meeting_notes_collection.md,,,**Refined Acceptance Criteria:** 1. Customer scans QR code a
+17,note,meeting_notes_collection.md,Technical Requirements Discussed,,,#### Technical Requirements Discussed - **Frontend:** React 
+18,note,meeting_notes_collection.md,Definition of Done,,,#### Definition of Done - [ ] Mobile UI passes accessibility
+19,note,meeting_notes_collection.md,meeting_notes_collection.md,,,**Concerns Raised:** - Network reliability in restaurant env
+20,note,meeting_notes_collection.md,meeting_notes_collection.md,2025-07-22,,"**Sprint Commitment:** Feature will be demo-ready by Jul 22,"
+21,note,meeting_notes_collection.md,meeting_notes_collection.md,,,---
+22,note,meeting_notes_collection.md,"Backend Architecture Review - Stripe Integration - Jul 18, 2025",2025-07-18,,## Backend Architecture Review - Stripe Integration - Jul 18
+23,note,meeting_notes_collection.md,meeting_notes_collection.md,,"** Mike Rodriguez (Backend Lead), Sarah Chen (Tech Lead), Alex Johnson (DevOps), Emma Davis (Security Engineer)","**Date:** July 18, 2025   **Time:** 10:00 AM - 12:00 PM PST "
+24,note,meeting_notes_collection.md,Architecture Overview,,,### Architecture Overview
+25,note,meeting_notes_collection.md,Current Stripe Integration Architecture,,,#### Current Stripe Integration Architecture ``` Frontend (R
+26,note,meeting_notes_collection.md,Key Components Reviewed,,,#### Key Components Reviewed
+27,note,meeting_notes_collection.md,meeting_notes_collection.md,,,**1. Payment Processing Flow** - Stripe Elements for secure 
+28,note,meeting_notes_collection.md,meeting_notes_collection.md,,,**2. Subscription Management** - Live pricing table: `prctbl
+29,note,meeting_notes_collection.md,meeting_notes_collection.md,,,**3. Security Considerations** - PCI DSS compliance through 
+30,note,meeting_notes_collection.md,Technical Decisions Made,,,#### Technical Decisions Made
+31,note,meeting_notes_collection.md,meeting_notes_collection.md,,,**Database Schema:** - Orders table with Stripe payment_inte
+32,note,meeting_notes_collection.md,meeting_notes_collection.md,,,**Error Handling:** - Retry mechanism for failed Oracle API 
+33,note,meeting_notes_collection.md,meeting_notes_collection.md,,,**Performance Optimizations:** - Connection pooling for Orac
+34,note,meeting_notes_collection.md,Security Review Results,,,#### Security Review Results - **PASSED:** Webhook signature
+35,note,meeting_notes_collection.md,meeting_notes_collection.md,,,**Next Steps:** - Implement encryption for sensitive data by
+36,note,meeting_notes_collection.md,meeting_notes_collection.md,,,---
+37,note,meeting_notes_collection.md,"Client Meeting - Sales Workflow Process - Jul 20, 2025",2025-07-20,,"## Client Meeting - Sales Workflow Process - Jul 20, 2025"
+38,note,meeting_notes_collection.md,meeting_notes_collection.md,,"** David Kim (Product Manager), Jennifer Walsh (Sales Director), Restaurant Owner - Tony Marcelli, Operations Manager - Maria Santos","**Date:** July 20, 2025   **Time:** 1:00 PM - 2:30 PM PST   "
+39,note,meeting_notes_collection.md,Meeting Objectives,,,### Meeting Objectives Review current sales workflow and ide
+40,note,meeting_notes_collection.md,Current Restaurant Workflow Analysis,,,### Current Restaurant Workflow Analysis
+41,note,meeting_notes_collection.md,Traditional Order Process (Before TYNGO),,,#### Traditional Order Process (Before TYNGO) 1. Customer se
+42,note,meeting_notes_collection.md,Proposed TYNGO Workflow,,,#### Proposed TYNGO Workflow 1. Customer scans QR code → Pla
+43,note,meeting_notes_collection.md,Sales Process Requirements,,,### Sales Process Requirements
+44,note,meeting_notes_collection.md,Customer Onboarding Flow,,,#### Customer Onboarding Flow 1. **Demo Scheduling:** Office
+45,note,meeting_notes_collection.md,Staff Training Requirements,,,#### Staff Training Requirements - 4-hour initial training s
+46,note,meeting_notes_collection.md,Key Decisions Made,,,### Key Decisions Made
+47,note,meeting_notes_collection.md,meeting_notes_collection.md,,,**Pricing Strategy:** - Tiered subscription model via Stripe
+48,note,meeting_notes_collection.md,meeting_notes_collection.md,,,**Implementation Timeline:** - Week 1: System setup and Orac
+49,note,meeting_notes_collection.md,meeting_notes_collection.md,,,**Success Metrics:** - Order accuracy: Target 95%+ - Table t
+50,note,meeting_notes_collection.md,Next Steps,,,#### Next Steps - Schedule technical integration meeting for
+51,note,meeting_notes_collection.md,meeting_notes_collection.md,,,**Action Items:** - David: Prepare demo environment by Jul 2
+52,story,historical_stories_collection.md,TYNGO Historical Stories Collection,,,# TYNGO Historical Stories Collection
+53,story,historical_stories_collection.md,User Story - Digital Table Touch Interface [COMPLETED],,,## User Story - Digital Table Touch Interface [COMPLETED]
+54,story,historical_stories_collection.md,historical_stories_collection.md,,,**Story ID:** TNG4-10845   **Epic:** Table-Side Customer Exp
+55,story,historical_stories_collection.md,Story Description,,,"### Story Description **As a restaurant customer, I want to "
+56,story,historical_stories_collection.md,Acceptance Criteria ✅,,,### Acceptance Criteria ✅ - [x] Touch interface displays ful
+57,story,historical_stories_collection.md,Acceptance Criteria ✅,,,- [x] Integration with Oracle Simphony POS system - [x] Orde
+58,story,historical_stories_collection.md,Technical Implementation,,,### Technical Implementation **Frontend Stack:** - React + T
+59,story,historical_stories_collection.md,historical_stories_collection.md,,,**Backend Integration:** - Oracle Simphony API for menu data
+60,story,historical_stories_collection.md,Testing Results,,,### Testing Results **Performance Metrics:** - Menu load tim
+61,story,historical_stories_collection.md,historical_stories_collection.md,,,**User Testing:** - 45 customers tested the interface - 89% 
+62,story,historical_stories_collection.md,Deployment Details,,,### Deployment Details **Rollout Strategy:** - Pilot deploym
+63,story,historical_stories_collection.md,historical_stories_collection.md,,,**Post-Deployment Metrics:** - Order accuracy: 94% (improved
+64,story,historical_stories_collection.md,Lessons Learned,,,### Lessons Learned **What Worked Well:** - Touch interface 
+65,story,historical_stories_collection.md,historical_stories_collection.md,,,**Challenges Overcome:** - Initial network connectivity issu
+66,story,historical_stories_collection.md,Business Impact,,,"### Business Impact **Revenue Metrics:** - $45,000 additiona"
+67,story,historical_stories_collection.md,historical_stories_collection.md,,,**Operational Benefits:** - Reduced order errors by 70% - El
+68,story,historical_stories_collection.md,historical_stories_collection.md,,,---
+69,story,historical_stories_collection.md,Epic - Oracle Database Integration [CLOSED],,,## Epic - Oracle Database Integration [CLOSED]
+70,story,historical_stories_collection.md,historical_stories_collection.md,2025-05-30,,**Epic ID:** TNG4-10200   **Epic Name:** Oracle Simphony POS
+71,story,historical_stories_collection.md,Epic Overview,,,### Epic Overview **Goal:** Integrate TYNGO Staff Order syst
+72,story,historical_stories_collection.md,Epic Scope,,,### Epic Scope **Included:** - Real-time order synchronizati
+73,story,historical_stories_collection.md,historical_stories_collection.md,,,**Excluded:** - Oracle hardware upgrades - Legacy system mig
+74,story,historical_stories_collection.md,User Stories Completed,,,### User Stories Completed 1. **TNG4-10201:** As a kitchen s
+75,story,historical_stories_collection.md,User Stories Completed,,,"5. **TNG4-10205:** As a staff member, I want to see order mo"
+76,story,historical_stories_collection.md,Technical Architecture Implemented,,,### Technical Architecture Implemented
+77,story,historical_stories_collection.md,historical_stories_collection.md,,,**Integration Layer:** ```javascript // Oracle Simphony API 
+78,story,historical_stories_collection.md,historical_stories_collection.md,,,// Real-time synchronization const syncOrderToOracle = async
+79,story,historical_stories_collection.md,historical_stories_collection.md,,,**Data Synchronization:** - Menu items: Every 15 minutes - I
+80,story,historical_stories_collection.md,Performance Achievements,,,### Performance Achievements **Response Time Metrics:** - Or
+81,story,historical_stories_collection.md,historical_stories_collection.md,,,**Reliability Metrics:** - API uptime: 99.7% (Target: > 99.5
+82,story,historical_stories_collection.md,Integration Challenges Resolved,,,### Integration Challenges Resolved
+83,story,historical_stories_collection.md,historical_stories_collection.md,,,**Challenge 1: Rate Limiting** - **Issue:** Oracle API limit
+84,story,historical_stories_collection.md,historical_stories_collection.md,,,**Challenge 2: Data Consistency** - **Issue:** Timing delays
+85,story,historical_stories_collection.md,historical_stories_collection.md,,,**Challenge 3: Network Reliability** - **Issue:** Intermitte
+86,story,historical_stories_collection.md,Business Impact,,,### Business Impact
+87,story,historical_stories_collection.md,historical_stories_collection.md,,,**Operational Improvements:** - 95% reduction in manual orde
+88,story,historical_stories_collection.md,historical_stories_collection.md,,,"**Financial Impact:** - $78,000 saved annually in labor cost"
+89,story,historical_stories_collection.md,Deployment Timeline,,,### Deployment Timeline - **Week 1-2:** Development and unit
+90,story,historical_stories_collection.md,Post-Deployment Support,,,### Post-Deployment Support - 24/7 monitoring for first 30 d
+91,story,historical_stories_collection.md,historical_stories_collection.md,,,---
+92,story,historical_stories_collection.md,Feature Request - Analytics Dashboard [ARCHIVED],,,## Feature Request - Analytics Dashboard [ARCHIVED]
+93,story,historical_stories_collection.md,historical_stories_collection.md,,,**Request ID:** TNG4-11200   **Feature Name:** Advanced Anal
+94,story,historical_stories_collection.md,Original Feature Request,,,### Original Feature Request **Submitted By:** Jennifer Wals
+95,story,historical_stories_collection.md,Requested Features,,,### Requested Features **Dashboard Components:** - Real-time
+96,story,historical_stories_collection.md,historical_stories_collection.md,,,**Visualizations:** - Interactive charts and graphs - Heat m
+97,story,historical_stories_collection.md,Technical Requirements (Proposed),,,### Technical Requirements (Proposed) **Frontend:** - React 
+98,story,historical_stories_collection.md,historical_stories_collection.md,,,**Backend:** - Data aggregation pipelines - ETL processes fo
+99,story,historical_stories_collection.md,historical_stories_collection.md,,,**Database:** ```sql -- Analytics data warehouse schema CREA
+100,story,historical_stories_collection.md,historical_stories_collection.md,,,"CREATE TABLE menu_item_analytics (     id UUID PRIMARY KEY, "
+101,story,historical_stories_collection.md,Business Case Analysis,,,### Business Case Analysis **Potential Benefits:** - 15% imp
+102,story,historical_stories_collection.md,historical_stories_collection.md,,,**Investment Required:** - Development time: 4 weeks (2 deve
+103,story,historical_stories_collection.md,Decision to Archive,,,### Decision to Archive **Reasoning:** 1. **Limited immediat
+104,story,historical_stories_collection.md,historical_stories_collection.md,,,"**Stakeholder Input:** - **Product Manager:** ""Analytics are"
+105,story,historical_stories_collection.md,Alternative Solutions Implemented,,,### Alternative Solutions Implemented **Basic Reporting Feat
+106,story,historical_stories_collection.md,historical_stories_collection.md,,,**Third-Party Integration:** - Google Analytics for web traf
+107,story,historical_stories_collection.md,Future Considerations,,,### Future Considerations **Potential Revival Criteria:** - 
+108,story,historical_stories_collection.md,historical_stories_collection.md,,,**Estimated Effort for Future Implementation:** - 6 weeks de
+109,story,historical_stories_collection.md,Related Features Delivered,,,### Related Features Delivered - **Basic Metrics:** Order co
+110,story,historical_stories_collection.md,historical_stories_collection.md,,,---
+111,story,historical_stories_collection.md,Bug Report - API Connection Timeout [RESOLVED],,,## Bug Report - API Connection Timeout [RESOLVED]
+112,story,historical_stories_collection.md,historical_stories_collection.md,,,**Bug ID:** TNG4-11887   **Title:** Oracle Simphony API Conn
+113,story,historical_stories_collection.md,Bug Description,,,### Bug Description **Issue:** During peak restaurant hours 
+114,story,historical_stories_collection.md,historical_stories_collection.md,,,**Reporter:** James Thompson (QA Lead)   **Reported Date:** 
+115,story,historical_stories_collection.md,Symptoms Observed,,,### Symptoms Observed **User Experience:** - Customers recei
+116,story,historical_stories_collection.md,historical_stories_collection.md,,,**System Behavior:** - API response times exceed 30 seconds 
+117,story,historical_stories_collection.md,Technical Investigation,,,### Technical Investigation
+118,story,historical_stories_collection.md,historical_stories_collection.md,,,**Root Cause Analysis:** ```javascript // Original problemat
+119,story,historical_stories_collection.md,historical_stories_collection.md,,,try {       return await connection.execute(orderData);     
+120,story,historical_stories_collection.md,historical_stories_collection.md,,,**Performance Metrics During Peak Hours:** - Average API res
+121,story,historical_stories_collection.md,historical_stories_collection.md,,,**Network Analysis:** - Oracle server response time: 8-12 se
+122,story,historical_stories_collection.md,Resolution Implementation,,,### Resolution Implementation
+123,story,historical_stories_collection.md,historical_stories_collection.md,,,**Solution 1: Connection Pool Optimization** ```javascript /
+124,story,historical_stories_collection.md,historical_stories_collection.md,,,const connectionPool = await oracle.createPool(oraclePool);
+125,story,historical_stories_collection.md,historical_stories_collection.md,,,// Reuse connections instead of creating new ones const exec
+126,story,historical_stories_collection.md,historical_stories_collection.md,,,**Solution 2: Timeout Configuration** ```javascript // Optim
+127,story,historical_stories_collection.md,historical_stories_collection.md,,,**Solution 3: Asynchronous Processing** ```javascript // Ord
+128,story,historical_stories_collection.md,historical_stories_collection.md,,,// Process orders asynchronously const processOrder = async 
+129,story,historical_stories_collection.md,Testing and Validation,,,### Testing and Validation
+130,story,historical_stories_collection.md,historical_stories_collection.md,,,**Load Testing Results:** - Simulated 100 concurrent orders 
+131,story,historical_stories_collection.md,historical_stories_collection.md,,,**Production Monitoring:** - 48-hour observation period post
+132,story,historical_stories_collection.md,Performance Improvements,,,### Performance Improvements
+133,story,historical_stories_collection.md,historical_stories_collection.md,,,**Before Fix:** - API timeout rate: 15% - Average response t
+134,story,historical_stories_collection.md,historical_stories_collection.md,,,**After Fix:** - API timeout rate: 0.8% - Average response t
+135,story,historical_stories_collection.md,Deployment Process,,,### Deployment Process
+136,story,historical_stories_collection.md,historical_stories_collection.md,,,**Rollout Strategy:** 1. **Staging Environment:** Deployed a
+137,story,historical_stories_collection.md,historical_stories_collection.md,,,**Monitoring Setup:** - Real-time API performance dashboard 
+138,story,historical_stories_collection.md,Prevention Measures,,,### Prevention Measures
+139,story,historical_stories_collection.md,historical_stories_collection.md,,,**Code Quality Improvements:** - Added comprehensive unit te
+140,story,historical_stories_collection.md,historical_stories_collection.md,,,**Monitoring Enhancements:** - Real-time performance metrics
+141,story,historical_stories_collection.md,historical_stories_collection.md,,,**Documentation Updates:** - Updated deployment procedures -
+142,story,historical_stories_collection.md,Business Impact,,,### Business Impact
+143,story,historical_stories_collection.md,historical_stories_collection.md,,,**Customer Experience:** - 87% reduction in order processing
+144,story,historical_stories_collection.md,historical_stories_collection.md,,,**Operational Efficiency:** - 95% reduction in manual order 
+145,story,historical_stories_collection.md,historical_stories_collection.md,,,"**Financial Impact:** - $12,000 monthly savings in labor cos"
+146,story,historical_stories_collection.md,Lessons Learned,,,### Lessons Learned
+147,story,historical_stories_collection.md,historical_stories_collection.md,,,**Technical Insights:** - Connection pooling critical for hi
+148,story,historical_stories_collection.md,historical_stories_collection.md,,,**Process Improvements:** - Load testing should simulate rea
+149,story,historical_stories_collection.md,historical_stories_collection.md,,,**Team Collaboration:** - Cross-functional team involvement 
+150,doc,functional_docs_collection.md,TYNGO Functional Documentation Collection,,,# TYNGO Functional Documentation Collection
+151,doc,functional_docs_collection.md,Functional Specification - Authentication Module v2.1,,,## Functional Specification - Authentication Module v2.1
+152,doc,functional_docs_collection.md,functional_docs_collection.md,,** Sarah Chen (Tech Lead),"**Document Version:** 2.1   **Last Updated:** July 8, 2025  "
+153,doc,functional_docs_collection.md,Overview,,,### Overview This document specifies the authentication modu
+154,doc,functional_docs_collection.md,Authentication Requirements,,,### Authentication Requirements
+155,doc,functional_docs_collection.md,1. Customer Authentication,,,#### 1. Customer Authentication **Purpose:** Secure customer
+156,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Authentication Methods:** - **Primary:** QR Code + Table N
+157,doc,functional_docs_collection.md,functional_docs_collection.md,,,**User Flow:** 1. Customer scans QR code at table 2. System 
+158,doc,functional_docs_collection.md,2. Staff Authentication,,,#### 2. Staff Authentication **Purpose:** Secure access to s
+159,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Authentication Methods:** - **Primary:** Username/Password
+160,doc,functional_docs_collection.md,functional_docs_collection.md,,,"**Role-Based Access Control:** - **Server:** View orders, up"
+161,doc,functional_docs_collection.md,3. Oracle Simphony Integration Authentication,,,#### 3. Oracle Simphony Integration Authentication **Purpose
+162,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Authentication Flow:** - API key authentication with Oracl
+163,doc,functional_docs_collection.md,Security Requirements,,,### Security Requirements
+164,doc,functional_docs_collection.md,Data Protection,,,#### Data Protection - **Encryption:** AES-256 for data at r
+165,doc,functional_docs_collection.md,Session Management,,,#### Session Management - **Customer Sessions:** 2-hour time
+166,doc,functional_docs_collection.md,Security Monitoring,,,#### Security Monitoring - Failed authentication attempt tra
+167,doc,functional_docs_collection.md,Technical Implementation,,,### Technical Implementation
+168,doc,functional_docs_collection.md,Database Schema,,,#### Database Schema ```sql -- Users table for staff authent
+169,doc,functional_docs_collection.md,functional_docs_collection.md,,,-- Customer sessions for table-side ordering CREATE TABLE cu
+170,doc,functional_docs_collection.md,functional_docs_collection.md,,,-- Oracle integration tokens CREATE TABLE oracle_tokens (   
+171,doc,functional_docs_collection.md,API Endpoints,,,#### API Endpoints - `POST /auth/customer/verify` - Customer
+172,doc,functional_docs_collection.md,Integration Requirements,,,### Integration Requirements
+173,doc,functional_docs_collection.md,Stripe Integration,,,#### Stripe Integration - Customer payment authentication vi
+174,doc,functional_docs_collection.md,Office 365 Integration,,,#### Office 365 Integration - SSO authentication for demo sc
+175,doc,functional_docs_collection.md,Testing Requirements,,,### Testing Requirements
+176,doc,functional_docs_collection.md,Unit Tests,,,#### Unit Tests - Authentication flow validation - Token gen
+177,doc,functional_docs_collection.md,Integration Tests,,,#### Integration Tests - Oracle Simphony API authentication 
+178,doc,functional_docs_collection.md,Security Tests,,,#### Security Tests - Penetration testing for authentication
+179,doc,functional_docs_collection.md,functional_docs_collection.md,,,---
+180,doc,functional_docs_collection.md,Push Notifications System Requirements,,,## Push Notifications System Requirements
+181,doc,functional_docs_collection.md,functional_docs_collection.md,,** Lisa Wang (Frontend Lead),"**Document Version:** 1.0   **Last Updated:** July 8, 2025  "
+182,doc,functional_docs_collection.md,System Overview,,,### System Overview Real-time push notification system for T
+183,doc,functional_docs_collection.md,Notification Types,,,### Notification Types
+184,doc,functional_docs_collection.md,1. Customer Notifications,,,#### 1. Customer Notifications **Order Status Updates:** - O
+185,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Marketing Notifications:** - Daily specials and promotions
+186,doc,functional_docs_collection.md,2. Staff Notifications,,,#### 2. Staff Notifications **Order Management:** - New orde
+187,doc,functional_docs_collection.md,functional_docs_collection.md,,,**System Notifications:** - Oracle Simphony connection statu
+188,doc,functional_docs_collection.md,Technical Requirements,,,### Technical Requirements
+189,doc,functional_docs_collection.md,Push Notification Channels,,,#### Push Notification Channels **Web Push (Primary):** - Se
+190,doc,functional_docs_collection.md,functional_docs_collection.md,,,**SMS (Secondary):** - Twilio integration for critical alert
+191,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Email (Fallback):** - SMTP configuration for transactional
+192,doc,functional_docs_collection.md,Real-time Communication,,,#### Real-time Communication **WebSocket Implementation:** -
+193,doc,functional_docs_collection.md,Integration Points,,,### Integration Points
+194,doc,functional_docs_collection.md,Oracle Simphony Integration,,,#### Oracle Simphony Integration - Order status webhooks - I
+195,doc,functional_docs_collection.md,Stripe Integration,,,#### Stripe Integration - Payment confirmation notifications
+196,doc,functional_docs_collection.md,Notification Delivery Requirements,,,### Notification Delivery Requirements
+197,doc,functional_docs_collection.md,Performance Specifications,,,#### Performance Specifications - **Delivery Time:** < 2 sec
+198,doc,functional_docs_collection.md,Personalization,,,#### Personalization - User preference management - Notifica
+199,doc,functional_docs_collection.md,Data Requirements,,,### Data Requirements
+200,doc,functional_docs_collection.md,Notification Storage,,,#### Notification Storage ```sql -- Notification templates C
+201,doc,functional_docs_collection.md,functional_docs_collection.md,,,-- Notification delivery log CREATE TABLE notification_log (
+202,doc,functional_docs_collection.md,functional_docs_collection.md,,,-- User notification preferences CREATE TABLE user_notificat
+203,doc,functional_docs_collection.md,Analytics and Tracking,,,#### Analytics and Tracking - Notification delivery rates - 
+204,doc,functional_docs_collection.md,functional_docs_collection.md,,,---
+205,doc,functional_docs_collection.md,eCommerce Use Cases - Restaurant Inventory Management,,,## eCommerce Use Cases - Restaurant Inventory Management
+206,doc,functional_docs_collection.md,functional_docs_collection.md,,** David Kim (Product Manager),"**Document Version:** 1.0   **Last Updated:** July 8, 2025  "
+207,doc,functional_docs_collection.md,Use Case Overview,,,### Use Case Overview This document outlines the eCommerce u
+208,doc,functional_docs_collection.md,Primary Use Cases,,,### Primary Use Cases
+209,doc,functional_docs_collection.md,Use Case 1: Real-Time Inventory Tracking,,,#### Use Case 1: Real-Time Inventory Tracking **Actor:** Kit
+210,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Preconditions:** - Oracle Simphony POS system is connected
+211,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Main Flow:** 1. Customer places order through table-side o
+212,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Alternative Flows:** - **Insufficient Stock:** System sugg
+213,doc,functional_docs_collection.md,Use Case 2: Automated Stock Replenishment,,,#### Use Case 2: Automated Stock Replenishment **Actor:** Re
+214,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Preconditions:** - Reorder points are configured for each 
+215,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Main Flow:** 1. System monitors ingredient usage patterns 
+216,doc,functional_docs_collection.md,Use Case 3: Menu Item Availability Management,,,#### Use Case 3: Menu Item Availability Management **Actor:*
+217,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Preconditions:** - Menu items are linked to required ingre
+218,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Main Flow:** 1. System continuously monitors ingredient le
+219,doc,functional_docs_collection.md,Secondary Use Cases,,,### Secondary Use Cases
+220,doc,functional_docs_collection.md,Use Case 4: Waste Tracking and Analytics,,,#### Use Case 4: Waste Tracking and Analytics **Actor:** Res
+221,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Main Flow:** 1. Kitchen staff logs expired or wasted items
+222,doc,functional_docs_collection.md,Use Case 5: Seasonal Menu Management,,,#### Use Case 5: Seasonal Menu Management **Actor:** Restaur
+223,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Main Flow:** 1. Manager configures seasonal menu items and
+224,doc,functional_docs_collection.md,Technical Integration Requirements,,,### Technical Integration Requirements
+225,doc,functional_docs_collection.md,Oracle Simphony Integration,,,"#### Oracle Simphony Integration ```json {   ""inventory_sync"
+226,doc,functional_docs_collection.md,Stripe Integration for Supplier Payments,,,#### Stripe Integration for Supplier Payments - Automated su
+227,doc,functional_docs_collection.md,Data Requirements,,,### Data Requirements
+228,doc,functional_docs_collection.md,Inventory Data Model,,,#### Inventory Data Model ```sql -- Inventory items CREATE T
+229,doc,functional_docs_collection.md,functional_docs_collection.md,,,-- Menu item ingredients CREATE TABLE menu_ingredients (    
+230,doc,functional_docs_collection.md,functional_docs_collection.md,,,-- Inventory transactions CREATE TABLE inventory_transaction
+231,doc,functional_docs_collection.md,Performance Requirements,,,### Performance Requirements - **Inventory Updates:** Real-t
+232,doc,functional_docs_collection.md,functional_docs_collection.md,,,---
+233,doc,functional_docs_collection.md,Payment Process Flow - Stripe Integration,,,## Payment Process Flow - Stripe Integration
+234,doc,functional_docs_collection.md,functional_docs_collection.md,,** Mike Rodriguez (Backend Lead),"**Document Version:** 1.0   **Last Updated:** July 8, 2025  "
+235,doc,functional_docs_collection.md,Payment Process Overview,,,### Payment Process Overview This document defines the compl
+236,doc,functional_docs_collection.md,Payment Flow Architecture,,,### Payment Flow Architecture
+237,doc,functional_docs_collection.md,System Components,,,#### System Components ``` Customer Mobile → React Frontend 
+238,doc,functional_docs_collection.md,Primary Payment Flows,,,### Primary Payment Flows
+239,doc,functional_docs_collection.md,Flow 1: Table-Side Order Payment,,,#### Flow 1: Table-Side Order Payment **Actor:** Restaurant 
+240,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Prerequisites:** - Customer has placed order through mobil
+241,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Main Payment Flow:** 1. **Order Confirmation:**    - Custo
+242,doc,functional_docs_collection.md,functional_docs_collection.md,,,2. **Payment Method Selection:**    - Credit/Debit card via 
+243,doc,functional_docs_collection.md,functional_docs_collection.md,,,3. **Payment Processing:**    ```javascript    // Payment In
+244,doc,functional_docs_collection.md,functional_docs_collection.md,,,4. **3D Secure Authentication:**    - Automatic 3D Secure au
+245,doc,functional_docs_collection.md,functional_docs_collection.md,,,5. **Payment Confirmation:**    - Stripe webhook confirms pa
+246,doc,functional_docs_collection.md,Flow 2: Subscription Payment Processing,,,#### Flow 2: Subscription Payment Processing **Actor:** Rest
+247,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Subscription Components:** - **Live Pricing Table:** `prct
+248,doc,functional_docs_collection.md,functional_docs_collection.md,,,**Subscription Flow:** 1. **Plan Selection:**    - Restauran
+249,doc,functional_docs_collection.md,functional_docs_collection.md,,,2. **Customer Creation:**    ```javascript    const customer
+250,doc,functional_docs_collection.md,functional_docs_collection.md,,,3. **Subscription Creation:**    - Automatic recurring billi
+251,doc,functional_docs_collection.md,Error Handling and Recovery,,,### Error Handling and Recovery
+252,doc,functional_docs_collection.md,Payment Failure Scenarios,,,#### Payment Failure Scenarios **1. Insufficient Funds:** - 
+253,doc,functional_docs_collection.md,functional_docs_collection.md,,,**2. Network Connectivity Issues:** - Automatic retry with e
+254,doc,functional_docs_collection.md,functional_docs_collection.md,,,**3. Stripe API Failures:** - Circuit breaker pattern implem
+255,doc,functional_docs_collection.md,Recovery Mechanisms,,,#### Recovery Mechanisms ```javascript // Payment retry logi
+256,doc,functional_docs_collection.md,Security Implementation,,,### Security Implementation
+257,doc,functional_docs_collection.md,PCI DSS Compliance,,,#### PCI DSS Compliance - **Scope Reduction:** Stripe handle
+258,doc,functional_docs_collection.md,Webhook Security,,,#### Webhook Security ```javascript // Webhook signature ver
+259,doc,functional_docs_collection.md,Data Protection,,,#### Data Protection - **Encryption:** Customer data encrypt
+260,doc,functional_docs_collection.md,Integration Points,,,### Integration Points
+261,doc,functional_docs_collection.md,Oracle Simphony Integration,,,#### Oracle Simphony Integration ```javascript // Order crea
+262,doc,functional_docs_collection.md,Notification System Integration,,,#### Notification System Integration - Payment confirmation 
+263,doc,functional_docs_collection.md,Performance Requirements,,,### Performance Requirements
+264,doc,functional_docs_collection.md,Response Time Targets,,,#### Response Time Targets - **Payment Intent Creation:** < 
+265,doc,functional_docs_collection.md,Scalability Specifications,,,#### Scalability Specifications - **Concurrent Payments:** 1
+266,doc,functional_docs_collection.md,Monitoring and Analytics,,,### Monitoring and Analytics
+267,doc,functional_docs_collection.md,Payment Metrics,,,#### Payment Metrics - Success/failure rates by payment meth
+268,doc,functional_docs_collection.md,Alert Thresholds,,,#### Alert Thresholds - Payment failure rate > 5% - Response
+269,doc,functional_docs_collection.md,Testing Requirements,,,### Testing Requirements
+270,doc,functional_docs_collection.md,Test Payment Methods,,,#### Test Payment Methods ```javascript // Test card numbers
+271,doc,functional_docs_collection.md,Integration Testing,,,#### Integration Testing - End-to-end payment flow testing -
+272,roadmap,tyngo_roadmap_completion.md,TYNGO Roadmap Collection - Completion,,,# TYNGO Roadmap Collection - Completion
+273,roadmap,tyngo_roadmap_completion.md,Technical Roadmap - Microservices 2025 (Continued),,,## Technical Roadmap - Microservices 2025 (Continued)
+274,roadmap,tyngo_roadmap_completion.md,Data Management Strategy (Continued),,,### Data Management Strategy (Continued)
+275,roadmap,tyngo_roadmap_completion.md,Database Per Service (Continued),,,#### Database Per Service (Continued)
+276,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,**Payment Service Database:** ```sql -- Payments table CREAT
+277,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,-- Subscription payments CREATE TABLE subscriptions (     id
+278,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,**Inventory Service Database:** ```sql -- Inventory items CR
+279,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,-- Stock movements CREATE TABLE stock_movements (     id UUI
+280,roadmap,tyngo_roadmap_completion.md,Data Synchronization Strategy,,,#### Data Synchronization Strategy
+281,roadmap,tyngo_roadmap_completion.md,Event definitions,,,**Event-Driven Architecture:** ```yaml # Event definitions e
+282,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,**Eventual Consistency Model:** - Order service publishes ev
+283,roadmap,tyngo_roadmap_completion.md,Service Communication Patterns,,,### Service Communication Patterns
+284,roadmap,tyngo_roadmap_completion.md,Synchronous Communication,,,#### Synchronous Communication **API Gateway Routing:** ```n
+285,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,upstream payment-service {     server payment-service:3002; 
+286,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,location /api/v1/orders {     proxy_pass http://order-servic
+287,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,location /api/v1/payments {     proxy_pass http://payment-se
+288,roadmap,tyngo_roadmap_completion.md,Asynchronous Communication,,,#### Asynchronous Communication **Kafka Topic Structure:** `
+289,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,**Event Processing Pattern:** ```javascript // Order service
+290,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,"topic: 'tyngo.orders.created',     messages: [{ value: JSON."
+291,roadmap,tyngo_roadmap_completion.md,Monitoring and Observability,,,### Monitoring and Observability
+292,roadmap,tyngo_roadmap_completion.md,Service Monitoring Stack,,,#### Service Monitoring Stack **Prometheus + Grafana:** ```y
+293,roadmap,tyngo_roadmap_completion.md,Distributed Tracing,,,#### Distributed Tracing **Jaeger Integration:** ```javascri
+294,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,const tracer = jaeger.initTracer({   serviceName: 'order-ser
+295,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,opentracing.initGlobalTracer(tracer); ```
+296,roadmap,tyngo_roadmap_completion.md,Key Performance Indicators,,,#### Key Performance Indicators **Service-Level Metrics:** -
+297,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,**Business-Level Metrics:** - Order processing time - Paymen
+298,roadmap,tyngo_roadmap_completion.md,Security Implementation,,,### Security Implementation
+299,roadmap,tyngo_roadmap_completion.md,Service-to-Service Authentication,,,#### Service-to-Service Authentication **JWT Token Validatio
+300,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,"const authenticateService = (req, res, next) => {   const to"
+301,roadmap,tyngo_roadmap_completion.md,Network Security,,,#### Network Security **Service Mesh Security (Istio):** ```
+302,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,--- apiVersion: security.istio.io/v1beta1 kind: Authorizatio
+303,roadmap,tyngo_roadmap_completion.md,Deployment Strategy,,,### Deployment Strategy
+304,roadmap,tyngo_roadmap_completion.md,Container Orchestration,,,#### Container Orchestration **Kubernetes Deployment:** ```y
+305,roadmap,tyngo_roadmap_completion.md,Container Orchestration,,,image: tyngo/order-service:latest         ports:         - c
+306,roadmap,tyngo_roadmap_completion.md,Container Orchestration,,,"limits:             memory: ""512Mi""             cpu: ""500m"" "
+307,roadmap,tyngo_roadmap_completion.md,Service Discovery,,,#### Service Discovery **Kubernetes Service:** ```yaml apiVe
+308,roadmap,tyngo_roadmap_completion.md,Migration Strategy,,,### Migration Strategy
+309,roadmap,tyngo_roadmap_completion.md,Phase 1: Infrastructure Setup (Weeks 1-2),,,#### Phase 1: Infrastructure Setup (Weeks 1-2) **Deliverable
+310,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,**Migration Checklist:** - [ ] Kubernetes cluster provisione
+311,roadmap,tyngo_roadmap_completion.md,Phase 2: Core Services (Weeks 3-6),,,#### Phase 2: Core Services (Weeks 3-6) **Order Service Migr
+312,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,**Payment Service Migration:** - Extract Stripe integration 
+313,roadmap,tyngo_roadmap_completion.md,Phase 3: Data Services (Weeks 7-10),,,#### Phase 3: Data Services (Weeks 7-10) **Inventory Service
+314,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,**Analytics Service:** - Implement event stream processing -
+315,roadmap,tyngo_roadmap_completion.md,Phase 4: Production Deployment (Weeks 11-12),,,#### Phase 4: Production Deployment (Weeks 11-12) **Gradual 
+316,roadmap,tyngo_roadmap_completion.md,Post-Migration Optimization,,,### Post-Migration Optimization
+317,roadmap,tyngo_roadmap_completion.md,Performance Tuning,,,#### Performance Tuning **Database Optimization:** - Connect
+318,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,**Cache Implementation:** - Redis cluster for session data -
+319,roadmap,tyngo_roadmap_completion.md,Cost Optimization,,,#### Cost Optimization **Resource Allocation:** - Horizontal
+320,roadmap,tyngo_roadmap_completion.md,Risk Mitigation,,,### Risk Mitigation
+321,roadmap,tyngo_roadmap_completion.md,Technical Risks,,,#### Technical Risks **Risk 1: Data Consistency Issues** - *
+322,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,**Risk 2: Service Communication Failures** - **Mitigation:**
+323,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,**Risk 3: Performance Degradation** - **Mitigation:** Compre
+324,roadmap,tyngo_roadmap_completion.md,Success Metrics,,,### Success Metrics
+325,roadmap,tyngo_roadmap_completion.md,Technical KPIs,,,#### Technical KPIs - **Service Availability:** 99.9% uptime
+326,roadmap,tyngo_roadmap_completion.md,Business KPIs,,,#### Business KPIs - **Order Processing Time:** 50% reductio
+327,roadmap,tyngo_roadmap_completion.md,Conclusion,,,### Conclusion
+328,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,The microservices migration represents a significant archite
+329,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,**Key Benefits:** - Independent service scaling - Technology
+330,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,**Next Steps:** 1. Stakeholder approval and budget allocatio
+331,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,---
+332,roadmap,tyngo_roadmap_completion.md,Appendix: Service API Documentation,,,## Appendix: Service API Documentation
+333,roadmap,tyngo_roadmap_completion.md,Order Service API,,,### Order Service API
+334,roadmap,tyngo_roadmap_completion.md,Create Order,,,#### Create Order ```http POST /api/v1/orders Content-Type: 
+335,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,"{   ""customerId"": ""uuid"",   ""restaurantId"": ""uuid"",   ""table"
+336,roadmap,tyngo_roadmap_completion.md,Get Order Status,,,#### Get Order Status ```http GET /api/v1/orders/{orderId} A
+337,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,"Response: {   ""orderId"": ""uuid"",   ""status"": ""preparing"",   "
+338,roadmap,tyngo_roadmap_completion.md,Payment Service API,,,### Payment Service API
+339,roadmap,tyngo_roadmap_completion.md,Create Payment Intent,,,#### Create Payment Intent ```http POST /api/v1/payments/int
+340,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,"{   ""orderId"": ""uuid"",   ""amount"": 2550,   ""currency"": ""usd"""
+341,roadmap,tyngo_roadmap_completion.md,Process Payment,,,#### Process Payment ```http POST /api/v1/payments/process C
+342,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,"{   ""paymentIntentId"": ""pi_xxxxx"",   ""paymentMethodId"": ""pm_"
+343,roadmap,tyngo_roadmap_completion.md,Inventory Service API,,,### Inventory Service API
+344,roadmap,tyngo_roadmap_completion.md,Get Inventory Status,,,#### Get Inventory Status ```http GET /api/v1/inventory/{res
+345,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,"Response: {   ""items"": [     {       ""itemId"": ""uuid"",      "
+346,roadmap,tyngo_roadmap_completion.md,Update Inventory,,,#### Update Inventory ```http PUT /api/v1/inventory/{itemId}
+347,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,"{   ""quantity"": 50,   ""operation"": ""add"",   ""reason"": ""deliv"
+348,roadmap,tyngo_roadmap_completion.md,tyngo_roadmap_completion.md,,,This completes the comprehensive roadmap documentation for T
+349,roadmap,roadmap_collection.md,TYNGO Roadmap Collection,,,# TYNGO Roadmap Collection
+350,roadmap,roadmap_collection.md,TYNGO Product Roadmap Q3-Q4 2025,,,## TYNGO Product Roadmap Q3-Q4 2025
+351,roadmap,roadmap_collection.md,roadmap_collection.md,,** David Kim (Product Manager),"**Document Version:** 1.0   **Last Updated:** July 8, 2025  "
+352,roadmap,roadmap_collection.md,Executive Summary,,,### Executive Summary This roadmap outlines TYNGO's strategi
+353,roadmap,roadmap_collection.md,Strategic Objectives,,,### Strategic Objectives
+354,roadmap,roadmap_collection.md,Q3 2025 Focus Areas,,,#### Q3 2025 Focus Areas 1. **Enhanced Customer Experience**
+355,roadmap,roadmap_collection.md,roadmap_collection.md,,,2. **Operational Excellence**    - Optimize Oracle Simphony 
+356,roadmap,roadmap_collection.md,roadmap_collection.md,,,3. **Market Expansion**    - Support for multi-location rest
+357,roadmap,roadmap_collection.md,Q4 2025 Focus Areas,,,#### Q4 2025 Focus Areas 1. **Advanced Features**    - AI-po
+358,roadmap,roadmap_collection.md,roadmap_collection.md,,,2. **Platform Scalability**    - Multi-tenant architecture  
+359,roadmap,roadmap_collection.md,roadmap_collection.md,,,3. **Ecosystem Integration**    - Third-party delivery platf
+360,roadmap,roadmap_collection.md,Q3 2025 Detailed Roadmap,,,### Q3 2025 Detailed Roadmap
+361,roadmap,roadmap_collection.md,July 2025,,,#### July 2025 **Theme:** Foundation Enhancement
+362,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Epic 1: Customer Experience Optimization** - **Goal:** Imp
+363,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Epic 2: Stripe Integration Enhancement** - **Goal:** Reduc
+364,roadmap,roadmap_collection.md,August 2025,,,#### August 2025 **Theme:** Operational Intelligence
+365,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Epic 3: Advanced Analytics Platform** - **Goal:** Provide 
+366,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Epic 4: Inventory Management 2.0** - **Goal:** Reduce food
+367,roadmap,roadmap_collection.md,September 2025,,,#### September 2025 **Theme:** Scale and Performance
+368,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Epic 5: Multi-Location Support** - **Goal:** Enable restau
+369,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Epic 6: Performance Optimization** - **Goal:** Improve sys
+370,roadmap,roadmap_collection.md,Q4 2025 Detailed Roadmap,,,### Q4 2025 Detailed Roadmap
+371,roadmap,roadmap_collection.md,October 2025,,,#### October 2025 **Theme:** AI-Powered Innovation
+372,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Epic 7: Intelligent Menu Recommendations** - **Goal:** Inc
+373,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Epic 8: Voice Ordering Integration** - **Goal:** Enable ha
+374,roadmap,roadmap_collection.md,November 2025,,,#### November 2025 **Theme:** Enterprise Readiness
+375,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Epic 9: Enterprise Security Suite** - **Goal:** Achieve en
+376,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Epic 10: Advanced Reporting Platform** - **Goal:** Provide
+377,roadmap,roadmap_collection.md,December 2025,,,#### December 2025 **Theme:** Ecosystem Integration
+378,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Epic 11: Third-Party Delivery Integration** - **Goal:** In
+379,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Epic 12: Marketing Automation Tools** - **Goal:** Enable r
+380,roadmap,roadmap_collection.md,Resource Planning,,,### Resource Planning
+381,roadmap,roadmap_collection.md,Development Team Structure,,,#### Development Team Structure **Core Team (8 developers):*
+382,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Specialized Support:** - 1 Security specialist (consultant
+383,roadmap,roadmap_collection.md,Technology Stack Evolution,,,#### Technology Stack Evolution **Current Stack:** - Fronten
+384,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Q4 2025 Additions:** - Machine Learning: TensorFlow/PyTorc
+385,roadmap,roadmap_collection.md,Risk Management,,,### Risk Management
+386,roadmap,roadmap_collection.md,Technical Risks,,,#### Technical Risks **Risk 1: Oracle Simphony API Limitatio
+387,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Risk 2: Scalability Challenges** - **Mitigation:** Impleme
+388,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Risk 3: AI/ML Model Performance** - **Mitigation:** Extens
+389,roadmap,roadmap_collection.md,Business Risks,,,#### Business Risks **Risk 1: Market Competition** - **Mitig
+390,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Risk 2: Customer Adoption** - **Mitigation:** Enhanced onb
+391,roadmap,roadmap_collection.md,Success Metrics,,,### Success Metrics
+392,roadmap,roadmap_collection.md,Key Performance Indicators,,,#### Key Performance Indicators **Product Metrics:** - Month
+393,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Technical Metrics:** - System Uptime: Target 99.9% - API R
+394,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Business Metrics:** - Revenue Growth: Target 75% YoY - Cus
+395,roadmap,roadmap_collection.md,Budget Allocation,,,### Budget Allocation
+396,roadmap,roadmap_collection.md,Q3 2025 Budget,,,"#### Q3 2025 Budget - Development: $450,000 - Infrastructure"
+397,roadmap,roadmap_collection.md,Q4 2025 Budget,,,"#### Q4 2025 Budget - Development: $550,000 - Infrastructure"
+398,roadmap,roadmap_collection.md,roadmap_collection.md,,,---
+399,roadmap,roadmap_collection.md,Technical Roadmap - Microservices 2025,,,## Technical Roadmap - Microservices 2025
+400,roadmap,roadmap_collection.md,roadmap_collection.md,,** Sarah Chen (CTO),"**Document Version:** 1.0   **Last Updated:** July 8, 2025  "
+401,roadmap,roadmap_collection.md,Current State Analysis,,,### Current State Analysis
+402,roadmap,roadmap_collection.md,Existing Monolithic Architecture,,,#### Existing Monolithic Architecture **Current System:** ``
+403,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Pain Points:** - Tight coupling between components - Diffi
+404,roadmap,roadmap_collection.md,Performance Bottlenecks,,,#### Performance Bottlenecks - Oracle integration causing sy
+405,roadmap,roadmap_collection.md,Microservices Target Architecture,,,### Microservices Target Architecture
+406,roadmap,roadmap_collection.md,Service Decomposition Strategy,,,#### Service Decomposition Strategy ``` ┌───────────────────
+407,roadmap,roadmap_collection.md,Service Decomposition Strategy,,,│  └─────────────┘  └─────────────┘  └─────────────┘        
+408,roadmap,roadmap_collection.md,Service Decomposition Strategy,,,├───────────────────────────────────────────────────────────
+409,roadmap,roadmap_collection.md,Service Definitions,,,#### Service Definitions
+410,roadmap,roadmap_collection.md,roadmap_collection.md,,,**1. Order Service** - **Responsibility:** Order lifecycle m
+411,roadmap,roadmap_collection.md,roadmap_collection.md,,,**2. Payment Service** - **Responsibility:** Payment process
+412,roadmap,roadmap_collection.md,roadmap_collection.md,,,**3. Inventory Service** - **Responsibility:** Stock managem
+413,roadmap,roadmap_collection.md,roadmap_collection.md,,,**4. User Service** - **Responsibility:** Authentication and
+414,roadmap,roadmap_collection.md,roadmap_collection.md,,,**5. Analytics Service** - **Responsibility:** Data processi
+415,roadmap,roadmap_collection.md,roadmap_collection.md,,,**6. Integration Service** - **Responsibility:** Third-party
+416,roadmap,roadmap_collection.md,Implementation Phases,,,### Implementation Phases
+417,roadmap,roadmap_collection.md,Phase 1: Foundation (Q3 2025),,,#### Phase 1: Foundation (Q3 2025) **Duration:** 6 weeks   *
+418,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Deliverables:** - API Gateway implementation (Kong) - Serv
+419,roadmap,roadmap_collection.md,Docker Compose for development,,,**Technical Stack:** ```yaml # Docker Compose for developmen
+420,roadmap,roadmap_collection.md,Docker Compose for development,,,build: ./services/payment     environment:       - STRIPE_SE
+421,roadmap,roadmap_collection.md,Phase 2: Core Services Migration (Q3-Q4 2025),,,#### Phase 2: Core Services Migration (Q3-Q4 2025) **Duratio
+422,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Week 1-2: Order Service** - Extract order management logic
+423,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Week 3-4: Payment Service** - Migrate Stripe integration -
+424,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Week 5-6: User Service** - Extract authentication logic - 
+425,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Week 7-8: Integration Testing** - Service-to-service commu
+426,roadmap,roadmap_collection.md,Phase 3: Advanced Services (Q4 2025),,,#### Phase 3: Advanced Services (Q4 2025) **Duration:** 6 we
+427,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Inventory Service Migration:** - Real-time stock tracking 
+428,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Analytics Service Implementation:** - Event stream process
+429,roadmap,roadmap_collection.md,Data Management Strategy,,,### Data Management Strategy
+430,roadmap,roadmap_collection.md,Database Per Service,,,#### Database Per Service **Order Service Database:** ```sql
+431,roadmap,roadmap_collection.md,roadmap_collection.md,,,-- Order items table CREATE TABLE order_items (     id UUID 
+432,roadmap,roadmap_collection.md,roadmap_collection.md,,,**Payment Service Database:** ```sql -- Payments table
+433,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,TYNGO Staff Order eCommerce (Stripe) * Reference  o JIRA o L
+434,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,o Frontend Stack o Component Structure * Responsive Experien
+435,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,o Authentication * Business Enablement  o Marketing Support 
+436,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,TNG4-12088 - Getting issue details... STATUS  LucidChart No 
+437,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,TYNGO Staff Order – Features Documentation Version 1.0 · Las
+438,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,Overview This document outlines all features developed for t
+439,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,"Design & UI Visual Design * Modern, gradient-based UI with s"
+440,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,* Animated loaders for visual feedback * Smooth scrolling be
+441,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,Branding & Identity Logos * Header: Blue gradient * Footer: 
+442,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,Payment Integration Stripe Integration * Live pricing table:
+443,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,Scheduling & Booking Demo Scheduling * Office 365 Bookings i
+444,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,Technical Architecture Frontend Stack * React + TypeScript f
+445,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,Responsive Experience * Mobile-first approach with defined b
+446,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,Page Content Structure Hero Section * Headline with gradient
+447,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,* Professional Onboarding – Guided implementation Pricing Se
+448,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,Integrations Stripe * Live pricing tables * Customer billing
+449,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,User Experience Interaction & Navigation * Clear structure a
+450,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,Deployment & Delivery Export Options * Self-contained HTML f
+451,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,Performance Optimization * Lazy loading for images/component
+452,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,"Security Data Protection * Secure link attributes (noopener,"
+453,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,Business Enablement Marketing Support * Clear feature presen
+454,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,Quality & Testing Code Quality * Strict typing with TypeScri
+455,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,Documentation Developer Docs * Component API references * In
+456,initial requirements,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,TYNGO+Staff+Order+eCommerce+(Stripe).doc.txt,,,Maintenance Update Management * Version control via Git * De
