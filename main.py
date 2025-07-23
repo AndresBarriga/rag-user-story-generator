@@ -108,5 +108,5 @@ def main(query: str):
         print(f"Unexpected error: {e}")
 
 if __name__ == "__main__":
-    query_input = sys.argv[1] if len(sys.argv) > 1 else "Stripe Integration"
+    query_input = sys.argv[1] if len(sys.argv) > 1 else "Airbnb Integration"
     main(query_input)
