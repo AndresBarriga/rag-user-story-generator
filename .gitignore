@@ -1,0 +1,9 @@
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+
+# Ignore environment files
+.env
+
+# OS-specific
+.DS_Store

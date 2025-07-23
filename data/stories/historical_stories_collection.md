@@ -1,586 +1,924 @@
-# TYNGO Historical Stories Collection
+# PropEase User Stories Collection
 
-## User Story - Digital Table Touch Interface [COMPLETED]
+## User Story - Automated Guest Communication System [IN PROGRESS]
 
-**Story ID:** TNG4-10845  
-**Epic:** Table-Side Customer Experience  
-**Status:** COMPLETED  
-**Completed Date:** June 15, 2025  
-**Story Points:** 8  
-**Sprint:** Sprint 20
+**Story ID:** PPE4-10102  
+**Epic:** Guest Experience Automation  
+**Status:** IN PROGRESS  
+**Started Date:** July 10, 2025  
+**Story Points:** 13  
+**Sprint:** Sprint 15
 
 ### Story Description
-**As a restaurant customer, I want to interact with a digital touch interface at my table so that I can browse the menu, place orders, and request service without waiting for staff.**
 
-### Acceptance Criteria ✅
-- [x] Touch interface displays full menu with images and descriptions
-- [x] Categories are clearly organized (Appetizers, Mains, Desserts, Beverages)
-- [x] Customers can add/remove items from their order
-- [x] Order total is calculated in real-time including tax
-- [x] Interface supports multiple languages (English, Spanish)
-- [x] Accessibility features for visually impaired customers
-- [x] Integration with Oracle Simphony POS system
-- [x] Order confirmation sent to kitchen display system
+**As a property manager, I want to automatically send personalized welcome messages and check-in instructions to guests so that I can provide excellent customer service without manual intervention and ensure guests have all necessary information before arrival.**
+
+### Acceptance Criteria
+
+- [ ] Welcome message sent within 1 hour of booking confirmation
+- [ ] Pre-arrival instructions sent 48 hours before check-in
+- [ ] Check-in details sent 24 hours before arrival
+- [ ] Day-of arrival confirmation and final instructions sent
+- [ ] Messages personalized with guest name and property details
+- [ ] Integration with Airbnb messaging API for seamless platform communication
+- [ ] SMS backup via Twilio for urgent updates
+- [ ] Email fallback with delivery confirmation
+- [ ] Multi-language support based on guest preferences
+- [ ] Template management system for customizable messages
 
 ### Technical Implementation
+
 **Frontend Stack:**
-- React + TypeScript
-- Tailwind CSS with TYNGO brand colors
-- Touch-optimized UI components
-- Responsive design for 10" and 12" tablet displays
+
+- React + TypeScript for message template management
+- Material-UI components for admin dashboard
+- Real-time message status tracking
+- Responsive design for mobile property management
 
 **Backend Integration:**
-- Oracle Simphony API for menu data synchronization
-- Real-time inventory checking
-- Order processing pipeline
-- Kitchen display system integration
 
-### Testing Results
-**Performance Metrics:**
-- Menu load time: 1.2 seconds (Target: < 2 seconds) ✅
-- Order placement time: 0.8 seconds (Target: < 1 second) ✅
-- Touch response time: 50ms (Target: < 100ms) ✅
-- Accessibility score: 95/100 (Target: > 90) ✅
+- Airbnb messaging API integration
+- Twilio SMS service integration
+- Email service with delivery tracking
+- Database schema for communication logs
+- Automated scheduling system
 
-**User Testing:**
-- 45 customers tested the interface
-- 89% satisfaction rate
-- 67% reduction in order placement time
-- 23% increase in average order value
+**API Integration:**
 
-### Deployment Details
-**Rollout Strategy:**
-- Pilot deployment: 5 tables at flagship restaurant
-- Gradual expansion: 20 tables over 2 weeks
-- Full deployment: 50 tables across 3 locations
-- Staff training: 2-hour sessions for all service staff
-
-**Post-Deployment Metrics:**
-- Order accuracy: 94% (improved from 78%)
-- Customer satisfaction: 4.6/5 stars
-- Staff efficiency: 35% improvement
-- Revenue impact: 18% increase in average order value
-
-### Lessons Learned
-**What Worked Well:**
-- Touch interface was intuitive for customers of all ages
-- Real-time inventory integration prevented ordering unavailable items
-- Multi-language support increased accessibility
-- Staff training was effective and well-received
-
-**Challenges Overcome:**
-- Initial network connectivity issues resolved with edge caching
-- Touch calibration needed adjustment for different tablet models
-- Oracle Simphony API rate limiting required optimization
-- Battery life optimization for all-day usage
-
-### Business Impact
-**Revenue Metrics:**
-- $45,000 additional monthly revenue across pilot locations
-- 15% reduction in labor costs during peak hours
-- 25% faster table turnover
-- 12% increase in repeat customers
-
-**Operational Benefits:**
-- Reduced order errors by 70%
-- Eliminated wait times for order taking
-- Improved staff focus on customer service
-- Enhanced data collection for analytics
-
----
-
-## Epic - Oracle Database Integration [CLOSED]
-
-**Epic ID:** TNG4-10200  
-**Epic Name:** Oracle Simphony POS Integration  
-**Status:** CLOSED  
-**Closed Date:** May 30, 2025  
-**Duration:** 6 weeks  
-**Team:** Backend Development Team
-
-### Epic Overview
-**Goal:** Integrate TYNGO Staff Order system with Oracle Simphony POS to enable real-time order processing, inventory management, and sales reporting.
-
-### Epic Scope
-**Included:**
-- Real-time order synchronization
-- Menu item and pricing synchronization
-- Inventory level monitoring
-- Sales data integration
-- Staff management integration
-- Payment processing coordination
-- Kitchen display system integration
-
-**Excluded:**
-- Oracle hardware upgrades
-- Legacy system migration
-- Third-party Oracle modules
-- Custom Oracle reporting modules
-
-### User Stories Completed
-1. **TNG4-10201:** As a kitchen staff member, I want orders to appear on the kitchen display system immediately after customer placement
-2. **TNG4-10202:** As a restaurant manager, I want real-time inventory updates when items are ordered
-3. **TNG4-10203:** As a customer, I want to see accurate pricing that matches the POS system
-4. **TNG4-10204:** As a restaurant owner, I want all orders to be recorded in Oracle Simphony for reporting
-5. **TNG4-10205:** As a staff member, I want to see order modifications reflected in the POS system instantly
-
-### Technical Architecture Implemented
-
-**Integration Layer:**
 ```javascript
-// Oracle Simphony API Integration
-const oracleConfig = {
-  baseURL: 'https://api.simphony.oracle.com/v1',
-  authentication: 'API_KEY',
-  timeout: 5000,
-  retryAttempts: 3,
-  rateLimiting: {
-    requestsPerHour: 500,
-    burstLimit: 10
-  }
+// Airbnb messaging integration
+const airbnbMessaging = {
+  async sendMessage(threadId, messageData) {
+    const response = await fetch('/messaging/messages', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${airbnbToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        thread_id: threadId,
+        message: messageData.body,
+        template_id: messageData.template_id,
+        variables: messageData.variables,
+      }),
+    });
+    return response.json();
+  },
 };
 
-// Real-time synchronization
-const syncOrderToOracle = async (order) => {
-  const oracleOrder = {
-    orderNumber: order.id,
-    tableNumber: order.table,
-    items: order.items.map(item => ({
-      menuItemId: item.oracle_id,
-      quantity: item.quantity,
-      modifications: item.modifications
-    })),
-    totalAmount: order.total,
-    timestamp: new Date().toISOString()
-  };
-  
-  return await oracleAPI.createOrder(oracleOrder);
+// Message template processing
+const processMessageTemplate = (template, guestData) => {
+  return template.replace(/{{(.*?)}}/g, (match, key) => {
+    return guestData[key] || match;
+  });
 };
 ```
 
-**Data Synchronization:**
-- Menu items: Every 15 minutes
-- Inventory levels: Real-time via webhooks
-- Order status: Real-time bidirectional sync
-- Sales data: Hourly batch processing
+### Testing Requirements
 
-### Performance Achievements
-**Response Time Metrics:**
-- Order creation: 850ms average (Target: < 1 second) ✅
-- Menu synchronization: 2.3 seconds (Target: < 3 seconds) ✅
-- Inventory updates: 400ms average (Target: < 500ms) ✅
-- Kitchen display updates: 1.1 seconds (Target: < 2 seconds) ✅
+**Performance Targets:**
+
+- Message delivery time: < 5 minutes (Target: < 2 minutes)
+- Template processing time: < 1 second
+- API response time: < 3 seconds
+- Database query performance: < 500ms
+
+**User Testing Scenarios:**
+
+- 50 property managers across different property types
+- 200 test bookings with various guest profiles
+- Multi-language message testing
+- Peak booking period simulation
+
+### Expected Business Impact
+
+**Operational Benefits:**
+
+- 80% reduction in manual guest communication
+- 95% improvement in guest information delivery consistency
+- 60% reduction in guest inquiries about check-in procedures
+- 45% improvement in guest satisfaction scores
+
+**Revenue Impact:**
+
+- $25,000 annual savings in staff communication time
+- 15% reduction in guest service issues
+- 20% improvement in guest review ratings
+- 12% increase in repeat bookings
+
+---
+
+## User Story - Smart Lock Guest Access Management [READY FOR DEVELOPMENT]
+
+**Story ID:** PPE4-10203  
+**Epic:** Smart Home Integration  
+**Status:** READY FOR DEVELOPMENT  
+**Created Date:** July 12, 2025  
+**Story Points:** 21  
+**Sprint:** Sprint 16
+
+### Story Description
+
+**As a guest, I want to receive automated access codes for smart locks that work only during my stay period so that I can check in seamlessly without waiting for keys or coordinating with property managers.**
+
+### Acceptance Criteria
+
+- [ ] Automated guest code generation upon booking confirmation
+- [ ] Time-limited access (check-in to check-out dates only)
+- [ ] Support for multiple smart lock brands (August, Schlage, Yale, Kwikset)
+- [ ] Guest receives access code via SMS and email 24 hours before arrival
+- [ ] Remote lock/unlock capabilities for property managers
+- [ ] Battery level monitoring and low battery alerts
+- [ ] Access log tracking with guest entry/exit timestamps
+- [ ] Automatic code deletion after checkout
+- [ ] Emergency override access for property managers
+- [ ] Integration with booking synchronization system
+
+### Technical Requirements
+
+**Supported Smart Lock Integration:**
+
+```python
+# Smart lock manager implementation
+class SmartLockManager:
+    def __init__(self, device_type: str, device_config: dict):
+        self.device_type = device_type
+        self.config = device_config
+        self.api_client = self._initialize_api_client()
+
+    async def generate_guest_code(self, booking_id: str, check_in: datetime, check_out: datetime):
+        """Generate time-limited access code for guest"""
+        guest_code = self._generate_secure_code()
+
+        access_schedule = {
+            "start_time": check_in.isoformat(),
+            "end_time": check_out.isoformat(),
+            "access_code": guest_code,
+            "user_id": f"guest_{booking_id}",
+            "permissions": ["unlock", "lock"]
+        }
+
+        result = await self.api_client.create_temporary_access(access_schedule)
+
+        # Log access code creation
+        await self._log_access_event(booking_id, "code_created", guest_code)
+
+        return {
+            "access_code": guest_code,
+            "valid_from": check_in,
+            "valid_until": check_out,
+            "device_id": self.config['device_id']
+        }
+
+    async def revoke_guest_access(self, booking_id: str, guest_code: str):
+        """Remove guest access immediately"""
+        result = await self.api_client.delete_temporary_access(guest_code)
+        await self._log_access_event(booking_id, "code_revoked", guest_code)
+        return result
+```
+
+**Database Schema:**
+
+```sql
+-- Smart lock access management
+CREATE TABLE smart_lock_access (
+    id UUID PRIMARY KEY,
+    booking_id UUID NOT NULL,
+    device_id UUID NOT NULL,
+    guest_code VARCHAR(10) NOT NULL,
+    valid_from TIMESTAMP NOT NULL,
+    valid_until TIMESTAMP NOT NULL,
+    status VARCHAR(20) DEFAULT 'active',
+    created_at TIMESTAMP DEFAULT NOW(),
+    revoked_at TIMESTAMP NULL
+);
+
+-- Access event logging
+CREATE TABLE lock_access_events (
+    id UUID PRIMARY KEY,
+    device_id UUID NOT NULL,
+    booking_id UUID NOT NULL,
+    event_type VARCHAR(30) NOT NULL, -- 'unlock', 'lock', 'code_created', 'code_revoked'
+    timestamp TIMESTAMP NOT NULL,
+    success BOOLEAN NOT NULL,
+    guest_code VARCHAR(10),
+    details JSON
+);
+```
+
+### Security Requirements
+
+**Access Control:**
+
+- Secure code generation using cryptographic randomness
+- Code complexity: 6-8 digit numeric codes
+- Automatic expiration enforcement
+- Audit logging for all access events
+- Encrypted storage of access codes
+- Device communication via SSL/TLS
+
+**Privacy Protection:**
+
+- Guest access logs retained for 30 days only
+- No recording of indoor activities
+- Access code sharing restrictions
+- GDPR compliant data handling
+
+### Integration Points
+
+**Booking System Integration:**
+
+- Automatic trigger on booking confirmation
+- Synchronization with booking modifications
+- Integration with cancellation workflow
+- Smart home preparation automation
+
+**Guest Communication Integration:**
+
+- Access code delivery via SMS and email
+- Check-in instruction inclusion
+- Troubleshooting guide provision
+- Emergency contact information
+
+### Performance Requirements
+
+**Response Time Targets:**
+
+- Code generation: < 10 seconds
+- Lock communication: < 3 seconds
+- Access log retrieval: < 1 second
+- Emergency override: < 5 seconds
+
+**Reliability Targets:**
+
+- Lock communication success rate: > 99%
+- Code generation success rate: > 99.5%
+- Device connectivity uptime: > 98%
+- Battery monitoring accuracy: > 95%
+
+### Business Impact Analysis
+
+**Guest Experience Improvements:**
+
+- 100% elimination of key pickup requirements
+- 95% reduction in check-in coordination time
+- 24/7 property access capability
+- 80% reduction in check-in related support calls
+
+**Operational Benefits:**
+
+- $30,000 annual savings in key management
+- 70% reduction in property manager coordination time
+- 90% reduction in lockout incidents
+- Enhanced security with access logging
+
+---
+
+## Epic - Dynamic Pricing Optimization Engine [IN PLANNING]
+
+**Epic ID:** PPE4-10300  
+**Epic Name:** Revenue Optimization Through Dynamic Pricing  
+**Status:** IN PLANNING  
+**Created Date:** July 8, 2025  
+**Estimated Duration:** 8 weeks  
+**Team:** Data Analytics & Backend Development
+
+### Epic Overview
+
+**Goal:** Implement an intelligent dynamic pricing engine that automatically adjusts nightly rates based on market conditions, demand patterns, local events, and competitor analysis to maximize revenue across all booking platforms.
+
+### Epic Scope
+
+**Included:**
+
+- Real-time market analysis and competitor pricing
+- Event-based surge pricing automation
+- Occupancy-driven rate optimization
+- Seasonal revenue planning algorithms
+- Integration with Airbnb pricing APIs
+- PayPal revenue processing optimization
+- Performance analytics and reporting
+
+**Excluded:**
+
+- Third-party pricing tool integrations
+- Manual pricing override workflows
+- Historical data migration beyond 12 months
+- Advanced machine learning model training
+
+### User Stories Planned
+
+1. **PPE4-10301:** As a property owner, I want automatic rate adjustments based on local market conditions
+2. **PPE4-10302:** As a revenue manager, I want surge pricing during local events and high-demand periods
+3. **PPE4-10303:** As a property manager, I want occupancy-based pricing to optimize booking velocity
+4. **PPE4-10304:** As a business owner, I want competitor analysis to position my properties competitively
+5. **PPE4-10305:** As a financial planner, I want seasonal pricing strategies for annual revenue planning
+
+### Technical Architecture Planning
+
+**Core Components:**
+
+```python
+# Dynamic pricing engine architecture
+class PricingEngine:
+    def __init__(self):
+        self.market_analyzer = MarketAnalyzer()
+        self.event_monitor = EventMonitor()
+        self.demand_predictor = DemandPredictor()
+        self.competitor_tracker = CompetitorTracker()
+
+    async def calculate_optimal_price(self, property_id: str, date_range: tuple):
+        """Calculate optimal pricing for given property and dates"""
+
+        # Gather market intelligence
+        market_data = await self.market_analyzer.get_market_conditions(property_id)
+        events = await self.event_monitor.get_local_events(property_id, date_range)
+        demand_forecast = await self.demand_predictor.predict_demand(property_id, date_range)
+        competitor_prices = await self.competitor_tracker.get_competitor_pricing(property_id)
+
+        # Apply pricing algorithms
+        base_price = await self._calculate_base_price(property_id, market_data)
+        event_multiplier = self._calculate_event_surge(events)
+        demand_adjustment = self._calculate_demand_adjustment(demand_forecast)
+        competitive_position = self._analyze_competitive_position(competitor_prices)
+
+        optimal_price = base_price * event_multiplier + demand_adjustment
+
+        return {
+            "recommended_price": optimal_price,
+            "confidence_score": self._calculate_confidence(market_data, events, demand_forecast),
+            "price_factors": {
+                "base_price": base_price,
+                "event_impact": event_multiplier,
+                "demand_adjustment": demand_adjustment,
+                "competitive_position": competitive_position
+            }
+        }
+```
+
+**Data Integration Requirements:**
+
+- Airbnb market data API integration
+- Local event calendar APIs
+- Weather data for demand prediction
+- Competitor pricing web scraping
+- Historical booking performance analysis
+
+### Expected Business Outcomes
+
+**Revenue Optimization:**
+
+- 15-25% increase in average nightly rates
+- 18% improvement in overall occupancy rates
+- 30% reduction in manual pricing adjustments
+- $75,000 additional annual revenue per property
+
+**Operational Efficiency:**
+
+- 95% automation of pricing decisions
+- 80% reduction in pricing management time
+- Real-time market response capability
+- Improved competitive positioning
+
+### Risk Assessment
+
+**Technical Risks:**
+
+- API rate limiting from external services
+- Data quality issues from web scraping
+- Algorithm complexity and maintenance
+- Integration challenges with multiple platforms
+
+**Business Risks:**
+
+- Over-pricing leading to reduced bookings
+- Market volatility affecting predictions
+- Competitor response to pricing strategies
+- Guest perception of frequent price changes
+
+**Mitigation Strategies:**
+
+- Comprehensive testing with historical data
+- Gradual rollout with performance monitoring
+- Manual override capabilities for edge cases
+- Clear pricing transparency for guests
+
+---
+
+## User Story - Multi-Platform Booking Synchronization [COMPLETED]
+
+**Story ID:** PPE4-10401  
+**Epic:** Booking Management System  
+**Status:** COMPLETED  
+**Completed Date:** June 25, 2025  
+**Story Points:** 34  
+**Sprint:** Sprint 12-14
+
+### Story Description
+
+**As a property manager, I want all bookings from different platforms (Airbnb, VRBO, Booking.com, direct bookings) to be automatically synchronized so that I can avoid double bookings and manage all reservations from a single dashboard.**
+
+### Acceptance Criteria ✅
+
+- [x] Real-time booking synchronization across all platforms
+- [x] Automatic calendar blocking when booking is received
+- [x] Payment processing integration with PayPal
+- [x] Guest communication activation upon booking confirmation
+- [x] Smart home access preparation automation
+- [x] Conflict detection and resolution workflow
+- [x] Manual synchronization override capabilities
+- [x] Booking modification propagation across platforms
+- [x] Cancellation processing and refund automation
+- [x] Performance monitoring and error handling
+
+### Technical Implementation
+
+**Synchronization Architecture:**
+
+```python
+# Multi-platform booking synchronization
+class BookingSynchronizer:
+    def __init__(self):
+        self.platforms = {
+            'airbnb': AirbnbAPI(),
+            'vrbo': VrboAPI(),
+            'booking_com': BookingComAPI(),
+            'direct': DirectBookingAPI()
+        }
+        self.calendar_manager = CalendarManager()
+        self.payment_processor = PayPalProcessor()
+
+    async def process_new_booking(self, booking_data: dict, source_platform: str):
+        """Process new booking and synchronize across all platforms"""
+
+        try:
+            # Validate booking data
+            validated_booking = await self._validate_booking(booking_data)
+
+            # Check for conflicts
+            conflicts = await self._check_booking_conflicts(validated_booking)
+            if conflicts:
+                return await self._handle_booking_conflict(conflicts, validated_booking)
+
+            # Block calendar immediately
+            await self.calendar_manager.block_dates(
+                validated_booking.property_id,
+                validated_booking.check_in,
+                validated_booking.check_out
+            )
+
+            # Sync to other platforms
+            sync_results = await self._sync_to_platforms(validated_booking, source_platform)
+
+            # Process payment
+            payment_result = await self.payment_processor.process_booking_payment(validated_booking)
+
+            # Activate guest services
+            await self._activate_guest_services(validated_booking)
+
+            return {
+                "status": "success",
+                "booking_id": validated_booking.id,
+                "sync_results": sync_results,
+                "payment_status": payment_result.status
+            }
+
+        except Exception as e:
+            await self._handle_sync_error(booking_data, e)
+            raise
+
+    async def _sync_to_platforms(self, booking: Booking, source_platform: str):
+        """Synchronize booking to all platforms except source"""
+        sync_results = {}
+
+        for platform_name, platform_api in self.platforms.items():
+            if platform_name != source_platform:
+                try:
+                    result = await platform_api.block_calendar_dates(
+                        booking.property_id,
+                        booking.check_in,
+                        booking.check_out
+                    )
+                    sync_results[platform_name] = {"status": "success", "result": result}
+                except Exception as e:
+                    sync_results[platform_name] = {"status": "error", "error": str(e)}
+                    # Queue for retry
+                    await self._queue_retry(platform_name, booking, e)
+
+        return sync_results
+```
+
+**Database Implementation:**
+
+```sql
+-- Booking synchronization tracking
+CREATE TABLE booking_sync_log (
+    id UUID PRIMARY KEY,
+    booking_id UUID NOT NULL,
+    source_platform VARCHAR(20) NOT NULL,
+    sync_timestamp TIMESTAMP DEFAULT NOW(),
+    sync_status VARCHAR(20) DEFAULT 'in_progress',
+    platform_results JSON,
+    error_details TEXT,
+    retry_count INTEGER DEFAULT 0
+);
+
+-- Platform synchronization status
+CREATE TABLE platform_sync_status (
+    platform_name VARCHAR(20) PRIMARY KEY,
+    last_sync_time TIMESTAMP,
+    sync_success_rate DECIMAL(5,2),
+    current_status VARCHAR(20) DEFAULT 'active',
+    error_count INTEGER DEFAULT 0,
+    last_error_time TIMESTAMP
+);
+```
+
+### Performance Results
+
+**Synchronization Speed:**
+
+- New booking processing: 18 seconds average (Target: < 30 seconds) ✅
+- Calendar updates: 6 seconds across all platforms (Target: < 10 seconds) ✅
+- Payment processing: 3.2 seconds average (Target: < 5 seconds) ✅
+- Smart home setup: 45 seconds average (Target: < 60 seconds) ✅
 
 **Reliability Metrics:**
-- API uptime: 99.7% (Target: > 99.5%) ✅
-- Data synchronization accuracy: 99.9% (Target: > 99.5%) ✅
-- Error rate: 0.3% (Target: < 1%) ✅
-- Failed order recovery: 100% (Target: > 95%) ✅
 
-### Integration Challenges Resolved
+- Synchronization success rate: 99.2% (Target: > 99%) ✅
+- Double booking prevention: 100% (Target: > 99.5%) ✅
+- Payment processing success: 98.8% (Target: > 98%) ✅
+- Error recovery rate: 99.7% (Target: > 95%) ✅
 
-**Challenge 1: Rate Limiting**
-- **Issue:** Oracle API limited to 500 requests/hour
-- **Solution:** Implemented request queuing with priority handling
-- **Result:** 40% reduction in API calls through intelligent batching
+### Testing Results
 
-**Challenge 2: Data Consistency**
-- **Issue:** Timing delays between TYNGO and Oracle systems
-- **Solution:** Event-driven architecture with conflict resolution
-- **Result:** 99.9% data consistency across systems
+**Load Testing:**
 
-**Challenge 3: Network Reliability**
-- **Issue:** Intermittent connectivity issues in restaurant environments
-- **Solution:** Offline-first architecture with automatic sync
-- **Result:** Zero order loss during network outages
+- Processed 500 concurrent bookings successfully
+- Peak hour simulation: 200 bookings/hour handled
+- Platform API failure recovery tested
+- Payment processing stress testing completed
+
+**User Acceptance Testing:**
+
+- 25 property managers across 15 properties
+- 48-hour continuous operation testing
+- Edge case scenario validation
+- Error handling and recovery verification
+
+### Deployment Details
+
+**Rollout Strategy:**
+
+- Pilot deployment: 3 properties for 1 week
+- Gradual expansion: 10 properties over 2 weeks
+- Full deployment: 50+ properties across all markets
+- 24/7 monitoring during initial deployment
+
+**Post-Deployment Metrics:**
+
+- Double booking incidents: 0 (Previous: 2-3 per month)
+- Manual synchronization interventions: 5 per month (Previous: 120 per month)
+- Property manager satisfaction: 4.8/5 stars
+- Guest booking confirmation time: 95% improvement
 
 ### Business Impact
 
 **Operational Improvements:**
-- 95% reduction in manual order entry
-- 78% decrease in order processing errors
-- 45% improvement in kitchen efficiency
-- 30% faster order fulfillment
+
+- 96% reduction in manual booking management
+- 100% elimination of double bookings
+- 75% reduction in booking-related customer service calls
+- 85% improvement in property manager productivity
 
 **Financial Impact:**
-- $78,000 saved annually in labor costs
-- 22% increase in order accuracy
-- 15% improvement in customer satisfaction
-- 8% increase in average order value
 
-### Deployment Timeline
-- **Week 1-2:** Development and unit testing
-- **Week 3:** Integration testing with Oracle sandbox
-- **Week 4:** User acceptance testing
-- **Week 5:** Production deployment and monitoring
-- **Week 6:** Performance optimization and documentation
+- $120,000 annual savings in operational costs
+- 18% increase in booking conversion rates
+- $45,000 reduction in lost revenue from double bookings
+- 22% improvement in guest satisfaction scores
 
-### Post-Deployment Support
-- 24/7 monitoring for first 30 days
-- Weekly performance reviews
-- Monthly optimization cycles
-- Quarterly Oracle API updates
+### Lessons Learned
 
----
+**What Worked Well:**
 
-## Feature Request - Analytics Dashboard [ARCHIVED]
+- Webhook-based real-time synchronization proved reliable
+- Automatic conflict detection prevented all double bookings
+- Payment integration streamlined the booking process
+- Comprehensive error handling reduced support burden
 
-**Request ID:** TNG4-11200  
-**Feature Name:** Advanced Analytics Dashboard  
-**Status:** ARCHIVED  
-**Archived Date:** June 30, 2025  
-**Reason:** Deprioritized in favor of core ordering features  
-**Priority:** Low  
-**Estimated Story Points:** 21
+**Challenges Overcome:**
 
-### Original Feature Request
-**Submitted By:** Jennifer Walsh (Sales Director)  
-**Submitted Date:** April 15, 2025  
-**Business Justification:** Provide restaurant managers with comprehensive analytics to make data-driven decisions about menu optimization, staffing, and customer behavior.
+- API rate limiting required intelligent request batching
+- Platform-specific data format variations handled with adapters
+- Network timeout handling improved system resilience
+- Database transaction management ensured data consistency
 
-### Requested Features
-**Dashboard Components:**
-- Real-time sales performance metrics
-- Customer behavior analytics
-- Menu item popularity tracking
-- Staff performance indicators
-- Revenue forecasting models
-- Inventory turnover analysis
+**Future Improvements Identified:**
 
-**Visualizations:**
-- Interactive charts and graphs
-- Heat maps for table utilization
-- Trend analysis over time periods
-- Comparative performance metrics
-- Custom report generation
-
-### Technical Requirements (Proposed)
-**Frontend:**
-- React dashboard with Recharts library
-- Real-time data updates via WebSocket
-- Export functionality (PDF, Excel)
-- Mobile-responsive design
-
-**Backend:**
-- Data aggregation pipelines
-- ETL processes for Oracle Simphony data
-- Caching layer for performance
-- API endpoints for dashboard data
-
-**Database:**
-```sql
--- Analytics data warehouse schema
-CREATE TABLE sales_analytics (
-    id UUID PRIMARY KEY,
-    restaurant_id UUID,
-    date_period DATE,
-    total_revenue DECIMAL(10,2),
-    order_count INTEGER,
-    avg_order_value DECIMAL(8,2),
-    peak_hour_start TIME,
-    peak_hour_end TIME,
-    created_at TIMESTAMP
-);
-
-CREATE TABLE menu_item_analytics (
-    id UUID PRIMARY KEY,
-    menu_item_id UUID,
-    date_period DATE,
-    orders_count INTEGER,
-    revenue_generated DECIMAL(10,2),
-    customer_rating DECIMAL(3,2),
-    preparation_time_avg INTEGER,
-    created_at TIMESTAMP
-);
-```
-
-### Business Case Analysis
-**Potential Benefits:**
-- 15% improvement in inventory management
-- 12% increase in revenue through menu optimization
-- 20% reduction in food waste
-- Enhanced customer satisfaction through data insights
-
-**Investment Required:**
-- Development time: 4 weeks (2 developers)
-- UI/UX design: 1 week
-- Testing and deployment: 1 week
-- Total estimated cost: $45,000
-
-### Decision to Archive
-**Reasoning:**
-1. **Limited immediate ROI:** Core ordering features provide higher value
-2. **Resource allocation:** Development team focused on Stripe integration
-3. **Customer feedback:** Restaurants prioritized operational features over analytics
-4. **Technical complexity:** Would require significant Oracle integration expansion
-
-**Stakeholder Input:**
-- **Product Manager:** "Analytics are valuable but not critical for MVP"
-- **CTO:** "Current Oracle integration provides basic reporting needs"
-- **Sales Team:** "Customers asking for simpler features first"
-- **Restaurant Partners:** "Focus on making ordering system more reliable"
-
-### Alternative Solutions Implemented
-**Basic Reporting Features:**
-- Daily sales summaries via email
-- Weekly performance reports
-- Monthly trend analysis
-- Integration with existing Oracle reports
-
-**Third-Party Integration:**
-- Google Analytics for web traffic
-- Stripe Dashboard for payment analytics
-- Oracle Simphony native reporting
-- Simple CSV exports for custom analysis
-
-### Future Considerations
-**Potential Revival Criteria:**
-- Customer demand increases significantly
-- Development capacity becomes available
-- Oracle integration reaches maturity
-- Competitive pressure requires advanced analytics
-
-**Estimated Effort for Future Implementation:**
-- 6 weeks development time
-- $60,000 estimated budget
-- 3 developers required
-- 2 months timeline including testing
-
-### Related Features Delivered
-- **Basic Metrics:** Order count, revenue, popular items
-- **Export Functionality:** CSV download for external analysis
-- **Real-time Monitoring:** System health and performance metrics
-- **Stripe Analytics:** Payment processing insights
+- Machine learning for booking conflict prediction
+- Enhanced analytics for synchronization performance
+- Mobile app integration for on-the-go management
+- Advanced reporting for revenue optimization
 
 ---
 
-## Bug Report - API Connection Timeout [RESOLVED]
+## Bug Report - Payment Processing Failure During Peak Booking [RESOLVED]
 
-**Bug ID:** TNG4-11887  
-**Title:** Oracle Simphony API Connection Timeout During Peak Hours  
+**Bug ID:** PPE4-11150  
+**Title:** PayPal Payment Processing Timeout During Weekend Peak Booking Hours  
 **Status:** RESOLVED  
-**Resolution Date:** July 5, 2025  
-**Severity:** HIGH  
-**Priority:** CRITICAL  
-**Affected Systems:** Oracle Integration, Order Processing
+**Resolution Date:** July 18, 2025  
+**Severity:** CRITICAL  
+**Priority:** HIGH  
+**Affected Systems:** PayPal Integration, Booking Confirmation, Guest Communication
 
 ### Bug Description
-**Issue:** During peak restaurant hours (6-8 PM), the Oracle Simphony API integration experiences frequent connection timeouts, causing orders to fail and requiring manual intervention.
 
-**Reporter:** James Thompson (QA Lead)  
-**Reported Date:** June 28, 2025  
+**Issue:** During weekend peak booking hours (Friday 6 PM - Sunday 11 PM), PayPal payment processing experiences frequent timeouts, causing booking confirmations to fail and leaving guests without access codes or check-in instructions.
+
+**Reporter:** Michael Chen (Customer Success Manager)  
+**Reported Date:** July 12, 2025  
 **Environment:** Production  
-**Affected Restaurants:** 3 locations with high table count (>30 tables)
+**Affected Properties:** All properties with PayPal integration (85+ properties)
 
 ### Symptoms Observed
-**User Experience:**
-- Customers receive "Order Processing Failed" errors
-- Orders stuck in "Pending" status for 5+ minutes
-- Kitchen display system shows incomplete order information
-- Staff required to manually re-enter orders into Oracle
+
+**Guest Experience:**
+
+- Payment successful but booking confirmation email never sent
+- Smart lock access codes not generated
+- Guests arriving without check-in instructions
+- Customer service calls increased by 300% during weekends
 
 **System Behavior:**
-- API response times exceed 30 seconds
-- Connection pool exhaustion errors
-- Increased error rates during 6-8 PM window
-- Database connection spikes correlating with timeouts
+
+- PayPal webhook delivery delays of 15-45 minutes
+- Database booking status stuck in "payment_pending"
+- Guest communication system not triggered
+- Smart home preparation workflow fails to start
 
 ### Technical Investigation
 
 **Root Cause Analysis:**
-```javascript
-// Original problematic code
-const oracleAPI = {
-  timeout: 10000, // 10 seconds - too aggressive
-  maxConnections: 5, // Too low for peak load
-  retryAttempts: 1, // Insufficient retry logic
-  
-  async createOrder(orderData) {
-    // No connection pooling
-    const connection = await oracle.getConnection();
-    try {
-      return await connection.execute(orderData);
-    } finally {
-      await connection.close(); // Creating/destroying connections frequently
-    }
-  }
-};
+
+```python
+# Original problematic payment processing
+async def process_payment_webhook(webhook_data):
+    # Synchronous processing causing bottlenecks
+    booking = await get_booking(webhook_data.booking_id)
+
+    if webhook_data.payment_status == "COMPLETED":
+        # Heavy synchronous operations
+        await update_booking_status(booking.id, "confirmed")
+        await send_confirmation_email(booking.guest_email)  # 3-5 second operation
+        await generate_smart_lock_codes(booking.property_id)  # 10-15 second operation
+        await sync_to_platforms(booking)  # 20-30 second operation
+        await prepare_guest_communications(booking)  # 5-10 second operation
+
+    return {"status": "processed"}  # Total processing time: 38-65 seconds
 ```
 
 **Performance Metrics During Peak Hours:**
-- Average API response time: 25 seconds
-- Connection pool utilization: 100%
-- Error rate: 15% (Target: < 1%)
-- Orders requiring manual intervention: 47 per hour
 
-**Network Analysis:**
-- Oracle server response time: 8-12 seconds during peak
-- Database query execution time: 3-5 seconds
-- Network latency: 100-200ms
-- Connection establishment time: 2-3 seconds
+- Webhook processing time: 45-65 seconds (PayPal timeout: 30 seconds)
+- Payment confirmation success rate: 67%
+- Guest communication delivery: 43% during peak hours
+- Smart lock code generation: 52% success rate
+
+**Traffic Analysis:**
+
+- Weekend booking volume: 400% increase over weekdays
+- PayPal webhook volume: 200+ per hour during peak
+- Concurrent payment processing: 15-25 simultaneous requests
+- Database connection pool exhaustion: 78% occurrence rate
 
 ### Resolution Implementation
 
-**Solution 1: Connection Pool Optimization**
-```javascript
-// Improved connection pooling
-const oraclePool = {
-  poolMin: 5,
-  poolMax: 20,
-  poolIncrement: 2,
-  poolTimeout: 60,
-  queueTimeout: 30000,
-  stmtCacheSize: 30
-};
+**Solution 1: Asynchronous Payment Processing**
 
-const connectionPool = await oracle.createPool(oraclePool);
+```python
+# Improved asynchronous payment processing
+from celery import Celery
+import asyncio
 
-// Reuse connections instead of creating new ones
-const executeQuery = async (query, params) => {
-  const connection = await connectionPool.getConnection();
-  try {
-    return await connection.execute(query, params);
-  } finally {
-    await connection.close(); // Returns to pool
-  }
-};
+app = Celery('payment_processor')
+
+async def process_payment_webhook(webhook_data):
+    """Quick webhook acknowledgment with async processing"""
+    try:
+        # Quick validation and acknowledgment
+        is_valid = await validate_webhook_signature(webhook_data)
+        if not is_valid:
+            return {"status": "invalid_signature"}, 400
+
+        # Update payment status immediately
+        await update_payment_status(webhook_data.booking_id, webhook_data.payment_status)
+
+        # Queue heavy operations asynchronously
+        if webhook_data.payment_status == "COMPLETED":
+            process_booking_confirmation.delay(webhook_data.booking_id)
+
+        return {"status": "received"}, 200  # Quick response to PayPal
+
+    except Exception as e:
+        logger.error(f"Webhook processing error: {e}")
+        return {"status": "error"}, 500
+
+@app.task(bind=True, max_retries=3)
+def process_booking_confirmation(self, booking_id):
+    """Asynchronous booking confirmation processing"""
+    try:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+
+        # Run confirmation steps asynchronously
+        tasks = [
+            confirm_booking(booking_id),
+            generate_access_codes(booking_id),
+            sync_platforms(booking_id),
+            send_guest_communications(booking_id)
+        ]
+
+        results = loop.run_until_complete(asyncio.gather(*tasks, return_exceptions=True))
+
+        # Handle any failures
+        for i, result in enumerate(results):
+            if isinstance(result, Exception):
+                logger.error(f"Task {i} failed for booking {booking_id}: {result}")
+
+        loop.close()
+
+    except Exception as exc:
+        logger.error(f"Booking confirmation failed: {exc}")
+        self.retry(countdown=60 * (self.request.retries + 1))
 ```
 
-**Solution 2: Timeout Configuration**
-```javascript
-// Optimized timeout settings
-const apiConfig = {
-  timeout: 45000, // Increased to 45 seconds
-  retryAttempts: 3, // Increased retry attempts
-  retryDelay: 2000, // 2 second delay between retries
-  circuitBreaker: {
-    failureThreshold: 5,
-    resetTimeout: 30000
-  }
-};
+**Solution 2: Database Connection Pool Optimization**
+
+```python
+# Optimized database connection management
+from sqlalchemy.pool import QueuePool
+import asyncpg
+
+# Connection pool configuration
+DATABASE_POOL_CONFIG = {
+    'min_size': 10,
+    'max_size': 50,
+    'max_queries': 50000,
+    'max_inactive_connection_lifetime': 300,
+    'command_timeout': 60
+}
+
+# Async connection pool
+async def create_db_pool():
+    return await asyncpg.create_pool(
+        DATABASE_URL,
+        **DATABASE_POOL_CONFIG
+    )
+
+# Connection context manager
+@contextmanager
+async def get_db_connection():
+    async with db_pool.acquire() as connection:
+        try:
+            yield connection
+        finally:
+            pass  # Connection automatically returned to pool
 ```
 
-**Solution 3: Asynchronous Processing**
-```javascript
-// Order queue implementation
-const orderQueue = new Queue('oracle-orders', {
-  defaultJobOptions: {
-    attempts: 3,
-    backoff: 'exponential',
-    delay: 1000
-  }
-});
+**Solution 3: Webhook Retry and Recovery**
 
-// Process orders asynchronously
-const processOrder = async (orderData) => {
-  try {
-    const result = await oracleAPI.createOrder(orderData);
-    await notifyKitchen(result);
-    await updateCustomerStatus(orderData.orderId, 'confirmed');
-  } catch (error) {
-    await handleOrderFailure(orderData, error);
-  }
-};
+```python
+# Webhook retry mechanism
+class WebhookProcessor:
+    def __init__(self):
+        self.max_retries = 3
+        self.retry_delays = [30, 120, 300]  # 30s, 2m, 5m
+
+    async def process_with_retry(self, webhook_data):
+        for attempt in range(self.max_retries + 1):
+            try:
+                result = await self.process_webhook(webhook_data)
+                if result.get('status') == 'success':
+                    return result
+
+            except Exception as e:
+                if attempt == self.max_retries:
+                    # Final failure - log and alert
+                    await self.handle_final_failure(webhook_data, e)
+                    raise
+
+                # Wait before retry
+                await asyncio.sleep(self.retry_delays[attempt])
+                continue
+
+    async def handle_final_failure(self, webhook_data, error):
+        """Handle final webhook processing failure"""
+        await log_webhook_failure(webhook_data, error)
+        await alert_support_team(webhook_data, error)
+        await create_manual_resolution_task(webhook_data)
 ```
 
 ### Testing and Validation
 
 **Load Testing Results:**
-- Simulated 100 concurrent orders during peak hours
-- Average response time reduced to 3.2 seconds
-- Error rate decreased to 0.8%
-- No connection timeouts observed
 
-**Production Monitoring:**
-- 48-hour observation period post-deployment
-- Zero timeout errors reported
-- Customer satisfaction improved from 3.2/5 to 4.6/5
-- Staff intervention reduced by 95%
+- Simulated 300 concurrent webhook deliveries
+- Average processing time reduced to 2.3 seconds
+- Payment confirmation success rate: 99.7%
+- Zero timeout errors during 48-hour test period
+
+**Production Validation:**
+
+- Weekend peak hour monitoring for 2 weeks
+- 99.8% webhook processing success rate
+- Average guest communication delivery time: 3.2 minutes
+- Smart lock code generation: 99.5% success rate
 
 ### Performance Improvements
 
 **Before Fix:**
-- API timeout rate: 15%
-- Average response time: 25 seconds
-- Manual interventions: 47/hour
-- Customer complaints: 23/day
+
+- Webhook timeout rate: 33%
+- Booking confirmation success: 67%
+- Guest communication delivery: 43%
+- Customer service calls: 450/weekend
 
 **After Fix:**
-- API timeout rate: 0.8%
-- Average response time: 3.2 seconds
-- Manual interventions: 2/hour
-- Customer complaints: 3/day
+
+- Webhook timeout rate: 0.2%
+- Booking confirmation success: 99.8%
+- Guest communication delivery: 99.7%
+- Customer service calls: 12/weekend
 
 ### Deployment Process
 
 **Rollout Strategy:**
-1. **Staging Environment:** Deployed and tested for 24 hours
-2. **Pilot Restaurant:** Single location deployment for 48 hours
-3. **Gradual Rollout:** 3 restaurants over 3 days
-4. **Full Deployment:** All affected locations
+
+1. **Staging Environment:** Full load testing for 72 hours
+2. **Canary Deployment:** 10% of traffic for 24 hours
+3. **Gradual Rollout:** 50% traffic for 48 hours
+4. **Full Deployment:** 100% traffic with monitoring
 
 **Monitoring Setup:**
-- Real-time API performance dashboard
-- Automated alerts for response times > 10 seconds
+
+- Real-time webhook processing metrics
+- PayPal integration health dashboard
+- Automated alerts for processing delays > 5 seconds
 - Daily performance reports
-- Error rate tracking and notifications
-
-### Prevention Measures
-
-**Code Quality Improvements:**
-- Added comprehensive unit tests for API integration
-- Implemented integration tests with Oracle sandbox
-- Added load testing to CI/CD pipeline
-- Created performance benchmarks
-
-**Monitoring Enhancements:**
-- Real-time performance metrics
-- Automated alerting for degraded performance
-- Capacity planning based on usage patterns
-- Proactive scaling recommendations
-
-**Documentation Updates:**
-- Updated deployment procedures
-- Created troubleshooting guide
-- Documented performance optimization techniques
-- Added monitoring playbooks
 
 ### Business Impact
 
-**Customer Experience:**
-- 87% reduction in order processing failures
-- 4.6/5 customer satisfaction rating (up from 3.2/5)
-- 95% reduction in order placement time
-- Zero customer complaints related to API timeouts
+**Guest Experience Improvements:**
 
-**Operational Efficiency:**
-- 95% reduction in manual order intervention
-- 78% improvement in staff productivity during peak hours
-- 45% reduction in customer service calls
-- 30% faster table turnover
+- 99.7% booking confirmation delivery success
+- 4.9/5 guest satisfaction rating (up from 2.8/5)
+- 97% reduction in check-in related support calls
+- Zero guests arriving without access codes
 
-**Financial Impact:**
-- $12,000 monthly savings in labor costs
-- 18% increase in peak hour revenue
-- 25% reduction in customer churn
-- 15% improvement in average order value
+**Operational Benefits:**
+
+- 97% reduction in weekend customer service volume
+- $18,000 monthly savings in support costs
+- 45% improvement in property manager efficiency
+- 99.8% booking process reliability
+
+**Revenue Protection:**
+
+- $85,000 monthly revenue protected from failed bookings
+- 23% increase in weekend booking conversion
+- 15% improvement in guest retention rates
+- Zero lost bookings due to payment processing failures
+
+### Prevention Measures
+
+**System Improvements:**
+
+- Comprehensive webhook monitoring system
+- Automated performance testing in CI/CD pipeline
+- Database connection pool health monitoring
+- PayPal integration status dashboard
+
+**Process Improvements:**
+
+- Weekly performance review meetings
+- Proactive capacity planning based on booking trends
+- Automated scaling policies for peak periods
+- Enhanced error alerting and escalation procedures
 
 ### Lessons Learned
 
 **Technical Insights:**
-- Connection pooling critical for high-load scenarios
-- Timeout values should be based on actual performance data
-- Asynchronous processing essential for user experience
-- Circuit breaker patterns prevent cascading failures
 
-**Process Improvements:**
-- Load testing should simulate real-world peak conditions
-- Monitoring must be in place before production deployment
-- Gradual rollout strategy reduces risk
-- Clear rollback procedures essential for critical fixes
+- Asynchronous processing critical for webhook reliability
+- Database connection pooling must scale with traffic
+- Timeout handling should prioritize quick acknowledgment
+- Retry mechanisms essential for payment processing reliability
 
-**Team Collaboration:**
-- Cross-functional team involvement crucial for quick resolution
-- Clear communication channels reduced resolution time
-- Documentation updates prevent recurring issues
-- Post-mortem analysis improved future development practices
+**Operational Insights:**
+
+- Peak period testing must simulate real-world conditions
+- Cross-functional incident response improves resolution time
+- Proactive monitoring prevents customer impact
+- Clear escalation procedures reduce business impact

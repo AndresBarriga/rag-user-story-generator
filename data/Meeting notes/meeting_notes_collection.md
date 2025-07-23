@@ -1,224 +1,254 @@
-# TYNGO Meeting Notes Collection
+# PropEase Property Management Documentation Collection
 
 ## Weekly Development Team Meeting - Jul 15, 2025
 
 **Date:** July 15, 2025  
-**Time:** 9:00 AM - 10:30 AM PST  
-**Attendees:** Sarah Chen (Tech Lead), Mike Rodriguez (Backend Dev), Lisa Wang (Frontend Dev), James Thompson (QA Lead), David Kim (Product Manager)
+**Time:** 10:00 AM - 11:30 AM EST  
+**Attendees:** Rachel Martinez (Tech Lead), Kevin Chen (Backend Dev), Ashley Park (Frontend Dev), Marcus Johnson (QA Lead), Sofia Rodriguez (Product Manager)
 
 ### Agenda Items
 
-#### 1. Sprint 23 Progress Review
-- **Table-Side Ordering Feature:** 85% complete
-  - Mobile UI components finalized
-  - Oracle Simphony integration testing in progress
-  - Stripe payment flow needs final validation
-- **Analytics Dashboard:** Blocked waiting for Oracle data schema
-- **Performance Optimization:** React components lazy loading implemented
+#### 1. Sprint 18 Progress Review
 
-#### 2. Stripe Integration Status
-- Live pricing table integration: **COMPLETED**
-- Subscription management portal: **IN TESTING**
-- Webhook handling for payment events: **PENDING**
-- Security review scheduled for Jul 18
+- **Dynamic Pricing Engine:** 92% complete
+  - Vue.js pricing dashboard finalized
+  - Airbnb API rate optimization completed
+  - PayPal recurring billing integration needs testing
+- **Guest Communication Portal:** Blocked waiting for Twilio SMS credits
+- **Multi-Calendar Sync:** Google Calendar integration implemented
+
+#### 2. PayPal Integration Status
+
+- Automated payout scheduling: **COMPLETED**
+- Security deposit handling: **IN TESTING**
+- Dispute management workflow: **PENDING**
+- Compliance review scheduled for Jul 17
 
 #### 3. Blockers & Issues
-- Oracle Simphony API rate limiting causing timeout issues
-- Office 365 booking integration needs admin approval
-- Responsive design issues on tablet devices (768px-1024px)
+
+- Airbnb API throttling during peak booking periods
+- Zoom meeting room auto-creation failing intermittently
+- Mobile responsiveness issues on property gallery (iPhone 12-14)
 
 #### 4. Next Sprint Planning
-- Focus on Oracle integration optimization
-- Complete Stripe webhook implementation
-- Begin work on real-time order updates feature
+
+- Focus on Airbnb synchronization reliability
+- Complete PayPal dispute resolution features
+- Begin work on automated check-in/check-out system
 
 **Action Items:**
-- Mike: Optimize Oracle API calls by Jul 18
-- Lisa: Fix tablet responsive issues by Jul 17
-- James: Complete Stripe payment testing by Jul 19
-- David: Schedule client demo for Jul 25
+
+- Kevin: Implement Airbnb API retry logic by Jul 19
+- Ashley: Fix iOS gallery display issues by Jul 18
+- Marcus: Complete PayPal payment testing by Jul 20
+- Sofia: Schedule property owner demo for Jul 26
 
 ---
 
-## Refinement Call - Table-Side Ordering Feature - Sprint 23 - Jul 10, 2025
+## Refinement Call - Automated Check-in System - Sprint 18 - Jul 11, 2025
 
-**Date:** July 10, 2025  
-**Time:** 2:00 PM - 3:30 PM PST  
+**Date:** July 11, 2025  
+**Time:** 3:00 PM - 4:30 PM EST  
 **Attendees:** Product Team + Development Team
 
 ### Feature Overview
-**Epic:** Table-Side Ordering System  
-**Story Points:** 13  
+
+**Epic:** Smart Check-in/Check-out System  
+**Story Points:** 21  
 **Priority:** High
 
 ### Acceptance Criteria Refinement
 
-#### User Story: "As a restaurant customer, I want to place orders directly from my table using a mobile device"
+#### User Story: "As a property guest, I want to check in remotely without meeting the host"
 
 **Refined Acceptance Criteria:**
-1. Customer scans QR code at table to access ordering interface
-2. Mobile-first responsive design (320px-768px priority)
-3. Integration with Oracle Simphony POS system
-4. Real-time order status updates
-5. Stripe payment processing with 3D Secure support
-6. Order confirmation via SMS/email
+
+1. Guest receives automated check-in instructions 24 hours before arrival
+2. Mobile-first interface for document upload and verification
+3. Integration with smart lock systems (August, Schlage)
+4. Real-time identity verification via Jumio
+5. PayPal security deposit authorization
+6. Automated welcome message with property details
 
 #### Technical Requirements Discussed
-- **Frontend:** React + TypeScript with Tailwind CSS
-- **Backend:** Node.js API with Oracle Simphony integration
-- **Payment:** Stripe Elements for secure card processing
-- **Styling:** TYNGO brand colors (Blue: hsl(217, 91%, 60%))
+
+- **Frontend:** Vue.js 3 + TypeScript with Vuetify components
+- **Backend:** Python FastAPI with Airbnb API integration
+- **Identity Verification:** Jumio SDK for document scanning
+- **Styling:** PropEase brand colors (Green: hsl(142, 71%, 45%))
 
 #### Definition of Done
-- [ ] Mobile UI passes accessibility tests (WCAG 2.1)
-- [ ] Oracle Simphony integration tested with live POS
-- [ ] Stripe payment flow tested with test cards
-- [ ] Error handling for network failures
-- [ ] Performance: < 3s load time on 3G
-- [ ] Cross-browser testing (Chrome, Safari, Firefox)
+
+- [ ] Mobile check-in flow passes WCAG 2.1 accessibility tests
+- [ ] Airbnb booking sync tested with live properties
+- [ ] PayPal authorization flow tested with sandbox
+- [ ] Smart lock integration tested with hardware
+- [ ] Performance: < 4s load time on mobile networks
+- [ ] Multi-browser testing (Chrome, Safari, Edge)
 
 **Concerns Raised:**
-- Network reliability in restaurant environments
-- Oracle API rate limiting (500 calls/hour)
-- Stripe webhook reliability for order confirmation
 
-**Sprint Commitment:** Feature will be demo-ready by Jul 22, 2025
+- Guest privacy during identity verification
+- Smart lock connectivity in remote properties
+- PayPal authorization hold timing
+
+**Sprint Commitment:** Feature will be demo-ready by Jul 25, 2025
 
 ---
 
-## Backend Architecture Review - Stripe Integration - Jul 18, 2025
+## Backend Architecture Review - Airbnb Integration - Jul 17, 2025
 
-**Date:** July 18, 2025  
-**Time:** 10:00 AM - 12:00 PM PST  
-**Attendees:** Mike Rodriguez (Backend Lead), Sarah Chen (Tech Lead), Alex Johnson (DevOps), Emma Davis (Security Engineer)
+**Date:** July 17, 2025  
+**Time:** 2:00 PM - 4:00 PM EST  
+**Attendees:** Kevin Chen (Backend Lead), Rachel Martinez (Tech Lead), Diego Santos (DevOps), Emma Thompson (Security Engineer)
 
 ### Architecture Overview
 
-#### Current Stripe Integration Architecture
+#### Current Airbnb Integration Architecture
+
 ```
-Frontend (React) → API Gateway → Node.js Backend → Stripe API
+Frontend (Vue.js) → API Gateway → Python FastAPI → Airbnb Partner API
                                        ↓
-                              Oracle Simphony POS
+                              Smart Lock Controllers
 ```
 
 #### Key Components Reviewed
 
-**1. Payment Processing Flow**
-- Stripe Elements for secure card collection
-- Payment Intent creation with metadata
-- Webhook handling for payment confirmation
-- Oracle Simphony order creation upon successful payment
+**1. Booking Synchronization Flow**
 
-**2. Subscription Management**
-- Live pricing table: `prctbl_1RdSbDG13KD7SzkS3yYckCFn`
-- Customer portal: `https://billing.stripe.com/p/login/test_3cIbJ11DO980ccdb2587K00`
-- Automated billing cycle management
+- Airbnb webhook handling for new bookings
+- Real-time calendar updates across platforms
+- PayPal automatic payout processing
+- Guest communication trigger system
+
+**2. Pricing Management**
+
+- Dynamic pricing algorithm based on occupancy
+- Seasonal rate adjustments: `pricing_rule_seasonal_2025`
+- Market analysis integration: `https://market-data.propease.com/v1/analyze`
+- Revenue optimization recommendations
 
 **3. Security Considerations**
-- PCI DSS compliance through Stripe
+
+- OAuth 2.0 compliance with Airbnb Partner API
 - Webhook signature verification
-- API key rotation strategy
-- Rate limiting implementation
+- API credential rotation strategy
+- Rate limiting per property portfolio
 
 #### Technical Decisions Made
 
 **Database Schema:**
-- Orders table with Stripe payment_intent_id
-- Customers table with Stripe customer_id
-- Audit log for all payment events
+
+- Properties table with airbnb_listing_id mapping
+- Bookings table with paypal_transaction_id
+- Guest communications audit trail
 
 **Error Handling:**
-- Retry mechanism for failed Oracle API calls
-- Fallback payment methods
+
+- Exponential backoff for failed Airbnb API calls
+- Fallback manual booking entry system
 - Graceful degradation for offline scenarios
 
 **Performance Optimizations:**
-- Connection pooling for Oracle connections
-- Stripe webhook queue processing
-- CDN for static assets
+
+- Redis caching for frequent property queries
+- Airbnb webhook queue processing with Celery
+- CDN for property images and documents
 
 #### Security Review Results
+
 - **PASSED:** Webhook signature validation
-- **PASSED:** API key management
-- **ACTION REQUIRED:** Implement payment data encryption at rest
-- **ACTION REQUIRED:** Add rate limiting per customer
+- **PASSED:** OAuth token management
+- **ACTION REQUIRED:** Implement guest data encryption at rest
+- **ACTION REQUIRED:** Add request throttling per property owner
 
 **Next Steps:**
-- Implement encryption for sensitive data by Jul 25
-- Deploy to staging environment by Jul 22
-- Performance testing with load simulation
+
+- Implement encryption for PII data by Jul 24
+- Deploy to staging environment by Jul 23
+- Load testing with simulated booking volume
 
 ---
 
-## Client Meeting - Sales Workflow Process - Jul 20, 2025
+## Client Meeting - Property Portfolio Management - Jul 19, 2025
 
-**Date:** July 20, 2025  
-**Time:** 1:00 PM - 2:30 PM PST  
-**Attendees:** David Kim (Product Manager), Jennifer Walsh (Sales Director), Restaurant Owner - Tony Marcelli, Operations Manager - Maria Santos
+**Date:** July 19, 2025  
+**Time:** 11:00 AM - 12:30 PM EST  
+**Attendees:** Sofia Rodriguez (Product Manager), Michael Chang (Sales Director), Property Owner - Alexandra Bennett, Portfolio Manager - James Wilson
 
 ### Meeting Objectives
-Review current sales workflow and identify optimization opportunities for TYNGO Staff Order system implementation.
 
-### Current Restaurant Workflow Analysis
+Review current property management workflow and identify optimization opportunities for PropEase multi-platform integration.
 
-#### Traditional Order Process (Before TYNGO)
-1. Customer seated → Server takes order → Kitchen preparation → Payment processing
+### Current Property Management Analysis
+
+#### Traditional Management Process (Before PropEase)
+
+1. Manual listing updates → Guest communication → Check-in coordination → Payment tracking
 2. **Pain Points Identified:**
-   - Order accuracy issues (15% error rate)
-   - Server bottlenecks during peak hours
-   - Payment processing delays
-   - Limited upselling opportunities
+   - Calendar sync errors across platforms (22% double bookings)
+   - Manual guest communication delays
+   - Security deposit processing complexity
+   - Limited pricing optimization
 
-#### Proposed TYNGO Workflow
-1. Customer scans QR code → Places order via mobile → Kitchen receives order → Automated payment
+#### Proposed PropEase Workflow
+
+1. Automated listing sync → AI-powered guest messaging → Smart check-in → Automated payouts
 2. **Expected Improvements:**
-   - 90% reduction in order errors
-   - 25% faster table turnover
-   - 18% increase in average order value
-   - Real-time inventory updates
+   - 95% reduction in double bookings
+   - 40% faster guest response times
+   - 28% increase in average nightly rates
+   - Real-time occupancy analytics
 
-### Sales Process Requirements
+### Portfolio Management Requirements
 
-#### Customer Onboarding Flow
-1. **Demo Scheduling:** Office 365 integration for calendar booking
-2. **Pricing Presentation:** Stripe pricing table with live calculations
-3. **Contract Signing:** Digital signature integration
-4. **Implementation:** 2-week onboarding process
+#### Property Onboarding Flow
+
+1. **Portfolio Assessment:** Zoom consultation for property evaluation
+2. **Pricing Strategy:** Dynamic pricing dashboard with market analysis
+3. **Contract Setup:** Digital agreement with integrated billing
+4. **Platform Integration:** 1-week cross-platform synchronization
 
 #### Staff Training Requirements
-- 4-hour initial training session
-- Mobile app usage demonstration
-- Oracle Simphony integration walkthrough
-- Troubleshooting common issues
+
+- 3-hour platform orientation session
+- Mobile app demonstration for on-site management
+- Airbnb/VRBO integration walkthrough
+- Emergency response protocol training
 
 ### Key Decisions Made
 
 **Pricing Strategy:**
-- Tiered subscription model via Stripe
-- Per-table pricing structure
-- 30-day free trial period
-- Custom enterprise pricing for 50+ tables
+
+- Percentage-based management fee via PayPal
+- Per-property monthly software license
+- 14-day free trial with full feature access
+- Enterprise pricing for 25+ property portfolios
 
 **Implementation Timeline:**
-- Week 1: System setup and Oracle integration
-- Week 2: Staff training and soft launch
-- Week 3: Full deployment and optimization
-- Week 4: Performance review and adjustments
+
+- Week 1: Platform setup and Airbnb/VRBO integration
+- Week 2: Smart lock installation and guest flow testing
+- Week 3: Full deployment and pricing optimization
+- Week 4: Performance analysis and fine-tuning
 
 **Success Metrics:**
-- Order accuracy: Target 95%+
-- Table turnover: Target 20% improvement
-- Customer satisfaction: Target 4.5/5 stars
-- Revenue increase: Target 15% within 60 days
+
+- Booking accuracy: Target 98%+
+- Guest satisfaction: Target 4.7/5 stars
+- Revenue optimization: Target 25% increase within 90 days
+- Response time: Target < 30 minutes for guest inquiries
 
 #### Next Steps
-- Schedule technical integration meeting for Jul 25
-- Prepare demo environment for client testing
-- Create customized pricing proposal
-- Develop implementation project plan
+
+- Schedule technical integration meeting for Jul 26
+- Prepare demo environment with sample properties
+- Create customized management fee proposal
+- Develop property-specific implementation roadmap
 
 **Action Items:**
-- David: Prepare demo environment by Jul 23
-- Jennifer: Create pricing proposal by Jul 22
-- Tony: Identify 5 tables for pilot testing
-- Maria: Schedule staff training sessions
+
+- Sofia: Configure demo properties by Jul 24
+- Michael: Prepare management agreement by Jul 23
+- Alexandra: Identify 3 properties for pilot program
+- James: Coordinate smart lock installation schedule

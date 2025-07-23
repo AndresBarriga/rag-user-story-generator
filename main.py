@@ -73,7 +73,7 @@ def main(query: str):
         total_cost_usd += token_info["total_cost_usd"]
 
         # 9. If score is below threshold, generate feedback and improved output
-        if score < 9.5:
+        if score < 6.5:
             print("\nScore below threshold, generating improved output with feedback...")
             improved_output = generate_feedback(query, rag_output, relevant_text)
 
